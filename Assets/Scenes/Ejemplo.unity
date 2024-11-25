@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 1470570347}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 366436221}
 --- !u!114 &146142165
 MonoBehaviour:
   m_ObjectHideFlags: 0
