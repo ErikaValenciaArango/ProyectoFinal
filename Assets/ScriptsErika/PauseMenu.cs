@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour
 
     public void goMainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MenuInicial");
         PlayerPrefs.DeleteAll();
     }
 }
