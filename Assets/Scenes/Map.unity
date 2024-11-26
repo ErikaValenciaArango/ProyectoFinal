@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -13514,7 +13514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8163200188094711961, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
       propertyPath: m_StoppingDistance
-      value: 1.7
+      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13572,6 +13572,10 @@ PrefabInstance:
     - target: {fileID: 951329004755009425, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666925789510901770, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3133201804361752072, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
       propertyPath: checkPoints.Array.data[0]
