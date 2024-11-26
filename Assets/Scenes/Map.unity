@@ -1010,38 +1010,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1467761451}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: -873712097559005039, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 229591504119081407, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.17
@@ -1082,40 +1050,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 951897824203126991, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d469a91c3327deb49b70971c737d0926, type: 2}
-    - target: {fileID: 2552214792500924958, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793380055499675420, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793380055499675420, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: characterController
-      value: 
-      objectReference: {fileID: 1467761460}
-    - target: {fileID: 8300849821206220072, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8890154133948136408, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8890154133948136408, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 229591504119081407, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1085938351}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
 --- !u!1 &134114135
@@ -6361,37 +6302,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1085938350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1085938351}
-  m_Layer: 0
-  m_Name: Pivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1085938351
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085938350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.917, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1467761458}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106138488
 GameObject:
   m_ObjectHideFlags: 0
@@ -9484,21 +9394,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1467761451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8890154133948136408, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-  m_PrefabInstance: {fileID: 113262029}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1467761458 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 229591504119081407, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-  m_PrefabInstance: {fileID: 113262029}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &1467761460 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 2552214792500924958, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-  m_PrefabInstance: {fileID: 113262029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1501575230
 Mesh:
   m_ObjectHideFlags: 0
@@ -13609,9 +13504,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2073511821569608482, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
+      propertyPath: distanciaAtacar
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2298654480731344665, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
       propertyPath: m_Name
       value: ZombieWaite
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163200188094711961, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

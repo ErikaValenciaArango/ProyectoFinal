@@ -50,7 +50,8 @@ public class EnemyAdult : Enemy
         if (animationChild != null) animationChild.SetFloat("speed", 1f);
         if (animationChild != null) animationChild.SetBool("attack", false);
         agent.SetDestination(target.position);
-        transform.LookAt(target, Vector3.up);
+        //transform.LookAt(target, Vector3.up);
+        transform.LookAt(pivot, Vector3.up);
     }
 
     public override void EstadoAttack()
@@ -59,7 +60,8 @@ public class EnemyAdult : Enemy
         if (animationChild != null) animationChild.SetFloat("speed", 0f);
         if (animationChild != null) animationChild.SetBool("attack", true);
         agent.SetDestination(target.position);
-        transform.LookAt(target, Vector3.up);
+        //transform.LookAt(target, Vector3.up);
+        transform.LookAt(pivot, Vector3.up);
     }
 
     public override void EstadoDead()
