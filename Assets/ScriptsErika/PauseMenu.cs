@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(true);
         pauseMenu.SetActive(false);
         pauseGame = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Restart()
