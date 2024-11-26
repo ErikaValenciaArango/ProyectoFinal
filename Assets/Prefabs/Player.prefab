@@ -257,6 +257,8 @@ GameObject:
   - component: {fileID: 951897824203126991}
   - component: {fileID: 2552214792500924958}
   - component: {fileID: 4793380055499675420}
+  - component: {fileID: 8300849821206220072}
+  - component: {fileID: -873712097559005039}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -379,6 +381,36 @@ MonoBehaviour:
     m_Bits: 64
   isGrounded: 0
   jumpHeight: 1.5
+--- !u!114 &8300849821206220072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890154133948136408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c548f2e5da307b4482114b55e327251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  personajeVida: {fileID: -873712097559005039}
+--- !u!114 &-873712097559005039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890154133948136408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eab7066a6020b4aa85d113ece52dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaInicial: 20
+  vidaActual: 0
+  eventoMorir:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8671716341602889117
 PrefabInstance:
   m_ObjectHideFlags: 0
