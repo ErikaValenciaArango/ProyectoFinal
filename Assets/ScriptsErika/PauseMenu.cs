@@ -53,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void goMainMenu()
     {
+        Time.timeScale = 1; // Reinicia el tiempo si fue pausado
         SceneManager.LoadScene("MenuInicial");
         PlayerPrefs.DeleteAll();
     }
