@@ -10,6 +10,8 @@ public class CameraLook : MonoBehaviour
     public Transform playerBody;
     // Rotación en el eje X
     float xRotation = 0;
+    // Rotación en el eje Y
+    float yRotation = 0;
 
     // Límites de rotación en el eje X
     private const float MIN_X_ROTATION = -90f;
@@ -42,5 +44,16 @@ public class CameraLook : MonoBehaviour
 
         // Rotar el cuerpo del jugador en el eje Y
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    // Métodos públicos para obtener las rotaciones
+    public float GetXRotation()
+    {
+        return xRotation;
+    }
+
+    public float GetYRotation()
+    {
+        return playerBody.eulerAngles.y;
     }
 }

@@ -31,10 +31,10 @@ public class Enemy : MonoBehaviour
     {
         if (autoSeleccionarTarget)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+                    target = GameObject.FindGameObjectWithTag("Player").transform;
+                    //Eliminar cuando se cambie el pivote
+                    pivot = target.Find("Pivot").transform;
 
-            //Eliminar cuando se cambie el pivote
-            pivot = target.Find("Pivot").transform;
             /////
         }
         StartCoroutine(CalcularDistancia());//Inicializa la corutina

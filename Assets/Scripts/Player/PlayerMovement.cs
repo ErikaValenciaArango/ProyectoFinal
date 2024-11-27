@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         CheckGroundStatus();
         Move();
         // El salto se habilita solo en caso de definir si nuestro personaje va a saltar

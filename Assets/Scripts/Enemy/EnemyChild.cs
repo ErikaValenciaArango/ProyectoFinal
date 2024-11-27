@@ -31,9 +31,13 @@ public class EnemyChild : Enemy
         base.EstadoFollow();
         if (animationChild != null) animationChild.SetFloat("speed", 1f);
         if (animationChild != null) animationChild.SetBool("attack", false);
-        agent.SetDestination(target.position);
-        //transform.LookAt(target, Vector3.up);
-        transform.LookAt(pivot, Vector3.up);
+        if (pivot != null && target != null)
+        {
+            agent.SetDestination(target.position);
+            //transform.LookAt(target, Vector3.up);
+            transform.LookAt(pivot, Vector3.up);
+        }
+
     }
 
     public override void EstadoAttack()
@@ -41,9 +45,12 @@ public class EnemyChild : Enemy
         base.EstadoAttack();
         if (animationChild != null) animationChild.SetFloat("speed",0f);
         if (animationChild != null) animationChild.SetBool("attack",true);
-        agent.SetDestination(target.position);
-        //transform.LookAt(target, Vector3.up);
-        transform.LookAt(pivot, Vector3.up);
+        if (pivot != null && target != null)
+        {
+            agent.SetDestination(target.position);
+            //transform.LookAt(target, Vector3.up);
+            transform.LookAt(pivot, Vector3.up);
+        }
     }
 
     public override void EstadoDead()
@@ -60,7 +67,10 @@ public class EnemyChild : Enemy
     }
     public void Attack()
     {
-        target.GetComponent<Personaje>().personajeVida.CausarDano(damage);
+        if (pivot != null && target != null)
+        {
+           target.GetComponent<Personaje>().personajeVida.CausarDano(damage);
+        }
     }
 
 }
