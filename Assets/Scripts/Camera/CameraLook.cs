@@ -10,8 +10,6 @@ public class CameraLook : MonoBehaviour
     public Transform playerBody;
     // Rotación en el eje X
     float xRotation = 0;
-    // Rotación en el eje Y
-    float yRotation = 0;
 
     // Límites de rotación en el eje X
     private const float MIN_X_ROTATION = -90f;
