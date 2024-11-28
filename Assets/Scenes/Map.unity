@@ -1901,6 +1901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 4203446933499962040, guid: 2515a914831b5bc429474cf8ed1a2bce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4222377011214256890, guid: 2515a914831b5bc429474cf8ed1a2bce, type: 3}
       propertyPath: m_Mesh
       value: 
