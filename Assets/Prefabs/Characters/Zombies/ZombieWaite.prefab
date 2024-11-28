@@ -701,6 +701,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2073511821569608482}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 289866376357816594}
   m_SourcePrefab: {fileID: 100100000, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
 --- !u!1 &2298654480731344665 stripped
 GameObject:
@@ -742,7 +745,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.7
+  m_StoppingDistance: 1.6
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -773,3 +776,24 @@ MonoBehaviour:
   vivo: 1
   animationChild: {fileID: 3496957926075701764}
   damage: 3
+--- !u!65 &289866376357816594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298654480731344665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99, y: 2.0454457, z: 0.54}
+  m_Center: {x: 0, y: 1.0127228, z: 0}

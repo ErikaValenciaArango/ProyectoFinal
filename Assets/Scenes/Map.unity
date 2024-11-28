@@ -2451,7 +2451,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6943644703517635878, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
@@ -4785,7 +4786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2443609069666585242, guid: 4079e4f0bd981e745a4f8b27635249cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.51
+      value: 0.5100002
       objectReference: {fileID: 0}
     - target: {fileID: 2443609069666585242, guid: 4079e4f0bd981e745a4f8b27635249cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4793,7 +4794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2443609069666585242, guid: 4079e4f0bd981e745a4f8b27635249cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.95500004
+      value: 0.9549999
       objectReference: {fileID: 0}
     - target: {fileID: 2443609069666585242, guid: 4079e4f0bd981e745a4f8b27635249cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16182,17 +16183,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2073511821569608482, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
-      propertyPath: distanciaAtacar
-      value: 1.7
-      objectReference: {fileID: 0}
     - target: {fileID: 2298654480731344665, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
       propertyPath: m_Name
       value: ZombieWaite
-      objectReference: {fileID: 0}
-    - target: {fileID: 8163200188094711961, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16250,10 +16243,6 @@ PrefabInstance:
     - target: {fileID: 951329004755009425, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2666925789510901770, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3133201804361752072, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
       propertyPath: checkPoints.Array.data[0]
