@@ -44,6 +44,7 @@ public class CameraLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
+
     // Métodos públicos para obtener las rotaciones
     public float GetXRotation()
     {
