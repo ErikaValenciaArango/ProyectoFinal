@@ -13,6 +13,7 @@ public class Shoot : MonoBehaviour
     private float nextShootTime = 0f;
 
     // Update is called once per frame
+
     void Update()
     {
         Shooting();
@@ -32,8 +33,8 @@ public class Shoot : MonoBehaviour
                 bullet.SetActive(true);
 
                 // Calcular la dirección hacia el centro de la pantalla
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
                 RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
                 Vector3 targetPoint;
 
                 if (Physics.Raycast(ray, out hit))
@@ -46,6 +47,13 @@ public class Shoot : MonoBehaviour
                 }
 
                 Vector3 direction = (targetPoint - shootPoint.position).normalized;
+
+                // Debug para inspeccionar la dirección
+                Debug.DrawRay(shootPoint.position, direction * 5, Color.red, 2f);
+
+                // Asegurar que la bala apunte hacia la dirección correcta
+                //bullet.transform.rotation = Quaternion.LookRotation(direction);
+
 
                 // Establecer la dirección de la bala
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
