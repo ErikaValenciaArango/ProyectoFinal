@@ -2282,22 +2282,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 662678675603003858, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35182893
-      objectReference: {fileID: 0}
-    - target: {fileID: 662678675603003858, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.17465492
-      objectReference: {fileID: 0}
-    - target: {fileID: 662678675603003858, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.42614076
-      objectReference: {fileID: 0}
-    - target: {fileID: 662678675603003858, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.111
-      objectReference: {fileID: 0}
     - target: {fileID: 8890154133948136408, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9860,11 +9844,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1171723259 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 229591504119081407, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
-  m_PrefabInstance: {fileID: 113262029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1173795849
 Mesh:
   m_ObjectHideFlags: 0
@@ -10599,8 +10578,6 @@ GameObject:
   - component: {fileID: 1357277152}
   - component: {fileID: 1357277151}
   - component: {fileID: 1357277150}
-  - component: {fileID: 1357277148}
-  - component: {fileID: 1357277153}
   - component: {fileID: 1357277154}
   m_Layer: 0
   m_Name: Main Camera
@@ -10609,20 +10586,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1357277148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357277147}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90dc9fbe72e819c44977b39ed74c2464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objective: {fileID: 0}
-  offset: {x: 0, y: 1, z: 0}
 --- !u!81 &1357277150
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10699,20 +10662,6 @@ Transform:
   - {fileID: 1672743068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1357277153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357277147}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc7fd39ec04a7a4cac64cbf89a9f205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 80
-  playerBody: {fileID: 1171723259}
 --- !u!114 &1357277154
 MonoBehaviour:
   m_ObjectHideFlags: 0
