@@ -113,3 +113,4 @@ MonoBehaviour:
     spawnPoints:
     - {fileID: 8319173051488232060}
     - {fileID: 4748437127863646890}
+    spawnCount: 1

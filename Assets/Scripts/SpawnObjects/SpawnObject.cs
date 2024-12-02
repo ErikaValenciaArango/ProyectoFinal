@@ -9,26 +9,44 @@ public class SpawnObject : MonoBehaviour
     {
         public GameObject objectToSpawn;       // El objeto a instanciar
         public Transform[] spawnPoints;       // Sus puntos de spawn específicos
+        public int spawnCount;                //cantidad de objetos a spawnear
     }
     public ObjectSpawnConfig[] spawnConfigs; // Lista de objetos y sus spawn points
     void Start()
     {
         foreach (ObjectSpawnConfig config in spawnConfigs)
         {
-            // Iterar a través de los puntos de spawn específicos para este objeto
-            foreach (Transform spawnPoint in config.spawnPoints)
-            {
-                // Si el objeto tiene puntos de spawn definidos
-                if (config.spawnPoints.Length > 0)
-                {
-                    // Seleccionar un punto aleatorio
-                    int randomIndex = Random.Range(0, config.spawnPoints.Length);
-                    Transform randomSpawnPoint = config.spawnPoints[randomIndex];
 
-                    // Instanciar el objeto en el punto seleccionado
-                    Instantiate(config.objectToSpawn, randomSpawnPoint.position, randomSpawnPoint.rotation, randomSpawnPoint);
-                }
+           if(config.spawnPoints.Length == 0)
+           {
+              Debug.LogWarning($"El objeto {config.objectToSpawn.name} no tiene puntos de spawn definidos.");
+              continue;
+           }
+
+           //Creo una lista que me permita saber que puntos ya hay objetos y que puntos no hay
+           List<Transform> availablePoints = new List<Transform>(config.spawnPoints);
+           
+           //Limito la cantidad de objetos a spawnear a la cantidad de puntos que hay
+           int spawnLimit = Mathf.Min(config.spawnCount, availablePoints.Count);
+
+            for (int i = 0; i < spawnLimit; i++)
+            {
+                // Elegir un punto aleatorio entre los disponibles
+                int randomIndex = Random.Range(0, availablePoints.Count);
+                Transform selectedSpawnPoint = availablePoints[randomIndex];
+                // Instanciar el objeto en el punto seleccionado
+                Instantiate(config.objectToSpawn, selectedSpawnPoint.position, selectedSpawnPoint.rotation, selectedSpawnPoint);
+                //Eliminar el punto utilizado para evitar repeticiones
+                availablePoints.RemoveAt(randomIndex);
+                
             }
+
+
+
+
+
+
+
         }
     }
 }
