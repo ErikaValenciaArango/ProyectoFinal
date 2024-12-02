@@ -9,7 +9,7 @@ public class WeaponSwitching : MonoBehaviour
     {
         SelectWeapon();
 
-        // Guardar rotación inicial del shootPoint
+        // Guardar rotaciï¿½n inicial del shootPoint
         Transform weapon = transform.GetChild(selectedWeapon);
         Transform shootPoint = weapon.Find("ShootPoint");
         if (shootPoint != null)
@@ -24,15 +24,15 @@ public class WeaponSwitching : MonoBehaviour
         int previousSelectedWeapon = selectedWeapon;
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if(selectedWeapon >= transform.childCount - 1)
+            if (selectedWeapon >= transform.childCount - 1)
             {
-              selectedWeapon = 0;
+                selectedWeapon = 0;
             }
             else
             {
-              selectedWeapon++;
+                selectedWeapon++;
             }
-             
+
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
@@ -66,7 +66,7 @@ public class WeaponSwitching : MonoBehaviour
             {
                 weapon.gameObject.SetActive(false);
             }
-              
+
             i++;
         }
     }

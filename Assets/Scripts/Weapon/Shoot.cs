@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Shoot : MonoBehaviour
 {
@@ -12,8 +11,14 @@ public class Shoot : MonoBehaviour
     [SerializeField] private float shootCooldown = 0.5f;
     private float nextShootTime = 0f;
 
-    // Update is called once per frame
+    private InputManager inputManager;
 
+    private void Start()
+    {
+        inputManager = InputManager.Instance;
+    }
+
+    // Update is called once per frame
     void Update()
     {
         Shooting();
@@ -24,7 +29,7 @@ public class Shoot : MonoBehaviour
         // Verificar si el tiempo actual es mayor o igual al tiempo del próximo disparo permitido
         if (Time.time >= nextShootTime)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (inputManager.PlayerAttacked())
             {
                 // Instanciar el bullet en la posición del punto de disparo
                 GameObject bullet = BulletPool.Instance.RequestBullet();
@@ -50,10 +55,6 @@ public class Shoot : MonoBehaviour
 
                 // Debug para inspeccionar la dirección
                 Debug.DrawRay(shootPoint.position, direction * 5, Color.red, 2f);
-
-                // Asegurar que la bala apunte hacia la dirección correcta
-                //bullet.transform.rotation = Quaternion.LookRotation(direction);
-
 
                 // Establecer la dirección de la bala
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
