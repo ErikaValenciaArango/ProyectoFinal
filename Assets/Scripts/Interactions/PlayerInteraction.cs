@@ -12,10 +12,17 @@ public class PlayerInteraction : MonoBehaviour
     public float sphereRadius = 0.5f;
     Interactable currentInteractable;
 
+    private InputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = InputManager.Instance;
+    }
+
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null)
+        if (inputManager.PlayerInteracted() && currentInteractable != null)
         {
             currentInteractable.Interact();
         }
@@ -58,8 +65,6 @@ public class PlayerInteraction : MonoBehaviour
             DisableCurrentInteractable();
         }
     }
-
-
 
     void SetNewCurrentInteractable(Interactable newInteractable)
     {
