@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
 
+    [SerializeField] private AudioClip stepsClip;
+    [SerializeField] private float footstepInterval = 0.4f;
+    private float footstepTimer = 0f;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -34,6 +38,20 @@ public class PlayerController : MonoBehaviour
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        if (groundedPlayer && move.magnitude > 0f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                AudioManager.Instance.PlaySFX(stepsClip); 
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
 
         // Hace que el jugador salte
         /*
