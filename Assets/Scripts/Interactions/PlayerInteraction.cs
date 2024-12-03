@@ -53,9 +53,12 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.tag == "Interactable") // Si se está mirando un objeto interactuable
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
-                
-                //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
-                newItem = hit.transform.GetComponent<PickupItem>().item as Weapon;
+
+                if (hit.transform.TryGetComponent<PickupItem>(out PickupItem pickupItem))
+                {
+                    //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
+                    newItem = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
+                }
 
 
                 // Si hay un currentInteractable y no es el newInteractable

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Maps/Map Stachs.unity.meta
+guid: 6a1b0dfdcdebeb242aa6169e220d8561
+========
 guid: 7e8950db6163f124e9ff3901a38230c4
+>>>>>>>> main:Assets/Scenes/GameLevel.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

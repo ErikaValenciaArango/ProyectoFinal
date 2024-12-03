@@ -7,7 +7,7 @@ public class Library : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public void Open()
