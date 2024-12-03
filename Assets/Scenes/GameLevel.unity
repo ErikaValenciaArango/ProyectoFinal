@@ -7405,6 +7405,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   weaponHolder: {fileID: 337876697}
+--- !u!4 &854178745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 229591504119081407, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+  m_PrefabInstance: {fileID: 113262029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &857642029
 Mesh:
   m_ObjectHideFlags: 0
@@ -14639,6 +14644,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4962328017463811433, guid: eee800ce89396e341b08258e017e37e7, type: 3}
   m_PrefabInstance: {fileID: 1524672609}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066570836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2298654480731344665, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
+  m_PrefabInstance: {fileID: 4228962460738780491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066570842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066570836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8eacd249041e6469aa7c148061650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSound: {fileID: 8300000, guid: 4c01ccd6e3973a241a8ee08ad360e19c, type: 3}
+  player: {fileID: 854178745}
+  maxDistance: 10
+  minDistance: 2
 --- !u!43 &2111317561
 Mesh:
   m_ObjectHideFlags: 0
@@ -15466,7 +15492,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2298654480731344665, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2066570842}
   m_SourcePrefab: {fileID: 100100000, guid: f7a26bb6eeab27c468caa17d5816b478, type: 3}
 --- !u!1001 &4911109652006888822
 PrefabInstance:
