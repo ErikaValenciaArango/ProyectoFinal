@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
     {
         effectsSource.PlayOneShot(clip);
     }
+
     public void PlayMusic(AudioClip music, bool loop)
     {
         musicSource.Stop();
@@ -43,6 +44,6 @@ public class AudioManager : MonoBehaviour
     public void VolumeMusic()
     {
         musicSource.volume = 0.02f;
-        effectsSource.volume = 0.8f;
+        effectsSource.volume = 0.09f;
     }
 }

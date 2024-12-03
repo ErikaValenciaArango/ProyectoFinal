@@ -12,10 +12,20 @@ public class Shoot : MonoBehaviour
     private float nextShootTime = 0f;
 
     private InputManager inputManager;
+    
+    private AudioClip shootClip;
 
     private void Start()
     {
         inputManager = InputManager.Instance;
+
+        // Carga el sonido desde Resources
+        shootClip = Resources.Load<AudioClip>("Audio/AutoGun_3p_02");
+
+        if (shootClip == null)
+        {
+            Debug.LogError("No se encontró el audio de disparo en Resources/Sounds/ShootSound");
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +41,7 @@ public class Shoot : MonoBehaviour
         {
             if (inputManager.PlayerAttacked())
             {
+                AudioManager.Instance.PlaySFX(shootClip);
                 // Instanciar el bullet en la posición del punto de disparo
                 GameObject bullet = BulletPool.Instance.RequestBullet();
                 bullet.transform.position = shootPoint.position;
