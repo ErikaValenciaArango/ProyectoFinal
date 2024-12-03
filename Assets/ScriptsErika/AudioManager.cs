@@ -22,10 +22,12 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, float volume)
     {
-        effectsSource.PlayOneShot(clip);
+        effectsSource.PlayOneShot(clip, volume);
     }
+
+
     public void PlayMusic(AudioClip music, bool loop)
     {
         musicSource.Stop();
@@ -43,6 +45,6 @@ public class AudioManager : MonoBehaviour
     public void VolumeMusic()
     {
         musicSource.volume = 0.02f;
-        effectsSource.volume = 0.8f;
+        effectsSource.volume = 0.5f;
     }
 }
