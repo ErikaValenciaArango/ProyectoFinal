@@ -2379,6 +2379,10 @@ PrefabInstance:
       propertyPath: pickupLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 7214051773553211762, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+      propertyPath: stepsClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fc532d4a4211da04cb589d28bce4fa2f, type: 3}
     - target: {fileID: 8890154133948136408, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_Name
       value: Player
