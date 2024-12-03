@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Shoot : MonoBehaviour
 {
@@ -11,6 +10,13 @@ public class Shoot : MonoBehaviour
     // Tiempo de cooldown entre disparos
     [SerializeField] private float shootCooldown = 0.5f;
     private float nextShootTime = 0f;
+
+    private InputManager inputManager;
+
+    private void Start()
+    {
+        inputManager = InputManager.Instance;
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +29,7 @@ public class Shoot : MonoBehaviour
         // Verificar si el tiempo actual es mayor o igual al tiempo del próximo disparo permitido
         if (Time.time >= nextShootTime)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (inputManager.PlayerAttacked())
             {
                 // Instanciar el bullet en la posición del punto de disparo
                 GameObject bullet = BulletPool.Instance.RequestBullet();
@@ -32,8 +38,8 @@ public class Shoot : MonoBehaviour
                 bullet.SetActive(true);
 
                 // Calcular la dirección hacia el centro de la pantalla
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
                 RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
                 Vector3 targetPoint;
 
                 if (Physics.Raycast(ray, out hit))
@@ -46,6 +52,9 @@ public class Shoot : MonoBehaviour
                 }
 
                 Vector3 direction = (targetPoint - shootPoint.position).normalized;
+
+                // Debug para inspeccionar la dirección
+                Debug.DrawRay(shootPoint.position, direction * 5, Color.red, 2f);
 
                 // Establecer la dirección de la bala
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
