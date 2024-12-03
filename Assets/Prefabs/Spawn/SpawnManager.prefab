@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnConfigs:
-  - objectToSpawn: {fileID: 2065402918995202493, guid: fbe582166cd950d4ca9924869ea988e9, type: 3}
+  - objectToSpawn: {fileID: 6028230883932097713, guid: e2e4b39a7cc6d9d46870a6f86bd708ea, type: 3}
     spawnPoints:
     - {fileID: 8319173051488232060}
     - {fileID: 4748437127863646890}
