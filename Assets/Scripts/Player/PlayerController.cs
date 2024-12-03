@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f)
             {
-                AudioManager.Instance.PlaySFX(stepsClip); 
+                AudioManager.Instance.PlaySFX(stepsClip, 1f); 
                 footstepTimer = footstepInterval;
             }
         }

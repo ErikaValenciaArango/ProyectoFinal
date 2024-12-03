@@ -41,7 +41,7 @@ public class Shoot : MonoBehaviour
         {
             if (inputManager.PlayerAttacked())
             {
-                AudioManager.Instance.PlaySFX(shootClip);
+                AudioManager.Instance.PlaySFX(shootClip, 0.2f);
                 // Instanciar el bullet en la posición del punto de disparo
                 GameObject bullet = BulletPool.Instance.RequestBullet();
                 bullet.transform.position = shootPoint.position;
