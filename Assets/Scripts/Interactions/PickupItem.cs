@@ -1,7 +1,9 @@
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class PickupItem : Interactable
 {
+    public Weapon item;
     protected override void Start()
     {
         base.Start();
