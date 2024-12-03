@@ -9,9 +9,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     private bool pauseGame = false;
 
+    private ZombieSound[] zombieSounds; // Referencias a los sonidos de los zombies
+
     private void Start()
     {
         Time.timeScale = 1f;
+        zombieSounds = FindObjectsOfType<ZombieSound>(); // Encuentra todos los scripts ZombieSound en la escena
     }
 
     private void Update()
@@ -28,6 +31,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -35,6 +39,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         pauseGame = true;
         Cursor.lockState = CursorLockMode.None;
+
+        // Pausar todos los sonidos de los zombies
+        foreach (var zombieSound in zombieSounds)
+        {
+            zombieSound.SetPaused(true);
+        }
     }
 
     public void Resume()
@@ -44,6 +54,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         pauseGame = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Reanudar todos los sonidos de los zombies
+        foreach (var zombieSound in zombieSounds)
+        {
+            zombieSound.SetPaused(false);
+        }
     }
 
     public void Restart()
@@ -59,3 +75,4 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 }
+
