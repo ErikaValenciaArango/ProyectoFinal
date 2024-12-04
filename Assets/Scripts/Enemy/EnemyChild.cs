@@ -31,11 +31,10 @@ public class EnemyChild : Enemy
         base.EstadoFollow();
         if (animationChild != null) animationChild.SetFloat("speed", 1f);
         if (animationChild != null) animationChild.SetBool("attack", false);
-        if (pivot != null && target != null)
+        if (agent != null && target != null)
         {
             agent.SetDestination(target.position);
-            //transform.LookAt(target, Vector3.up);
-            transform.LookAt(pivot, Vector3.up);
+            transform.LookAt(target, Vector3.up);
         }
 
     }
@@ -45,11 +44,10 @@ public class EnemyChild : Enemy
         base.EstadoAttack();
         if (animationChild != null) animationChild.SetFloat("speed",0f);
         if (animationChild != null) animationChild.SetBool("attack",true);
-        if (pivot != null && target != null)
+        if (agent != null && target != null)
         {
             agent.SetDestination(target.position);
-            //transform.LookAt(target, Vector3.up);
-            transform.LookAt(pivot, Vector3.up);
+            transform.LookAt(target, Vector3.up);
         }
     }
 
@@ -67,7 +65,7 @@ public class EnemyChild : Enemy
     }
     public void Attack()
     {
-        if (pivot != null && target != null)
+        if (agent != null && target != null)
         {
            target.GetComponent<Personaje>().personajeVida.CausarDano(damage);
         }

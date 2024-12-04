@@ -19,9 +19,6 @@ public class Enemy : MonoBehaviour
     //Posiciones
     public Transform target;
 
-    //Eliminar cuando se quiten los pivotes
-    public Transform pivot;
-    /////
 
     //Verificadores
     public bool autoSeleccionarTarget = true;// seleccinar cual va ha ser el objetivo
@@ -32,10 +29,6 @@ public class Enemy : MonoBehaviour
         if (autoSeleccionarTarget)
         {
                     target = GameObject.FindGameObjectWithTag("Player").transform;
-                    //Eliminar cuando se cambie el pivote
-                    pivot = target.Find("Pivot").transform;
-
-            /////
         }
         StartCoroutine(CalcularDistancia());//Inicializa la corutina
     }
