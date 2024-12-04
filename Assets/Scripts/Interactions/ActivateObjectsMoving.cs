@@ -1,5 +1,3 @@
-using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 
 public class ActivateObjectsMoving : Interactable
 {
