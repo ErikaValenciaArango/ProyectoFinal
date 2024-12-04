@@ -46,7 +46,7 @@ public class EnemyChild : Enemy
         if (animationChild != null) animationChild.SetBool("attack",true);
         if (agent != null && target != null)
         {
-            agent.SetDestination(target.position);
+            //agent.SetDestination(target.position);
             transform.LookAt(target, Vector3.up);
         }
     }
