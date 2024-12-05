@@ -10,7 +10,7 @@ public class Shoot : MonoBehaviour
     private float nextShootTime = 0f;
 
     private InputManager inputManager;
-    
+
     private AudioClip shootClip;
 
     private void Start()

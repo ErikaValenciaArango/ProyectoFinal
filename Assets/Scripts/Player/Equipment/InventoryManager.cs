@@ -16,24 +16,24 @@ public class InventoryManager : MonoBehaviour
 
     private void InitVariables()
     {
-        weapons = new Weapon[2]; // Inicialización de armas, ajusta según sea necesario
+        weapons = new Weapon[2]; // Inicializaciï¿½n de armas, ajusta segï¿½n sea necesario
     }
 
     public void AddItem(Weapon item)
     {
         int newItemIndex = (int)item.weaponStyle;
 
-            if (weapons[newItemIndex] != null)
-            {
-                RemoveItem(newItemIndex);
-            }
+        if (weapons[newItemIndex] != null)
+        {
+            RemoveItem(newItemIndex);
+        }
 
         weapons[newItemIndex] = item;
 
-        // Disparar evento para notificar que un arma ha sido añadida
+        // Disparar evento para notificar que un arma ha sido aï¿½adida
         OnWeaponAdded?.Invoke(item);
 
-        // Actualizar UI del arma (puedes cambiar según tu implementación de UI)
+        // Actualizar UI del arma (puedes cambiar segï¿½n tu implementaciï¿½n de UI)
         playerHUD.UpdateWeaponUI(item);
     }
 

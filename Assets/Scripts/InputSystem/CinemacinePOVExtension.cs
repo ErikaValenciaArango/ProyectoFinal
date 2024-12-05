@@ -16,6 +16,10 @@ public class CineMachinePOVExtension : CinemachineExtension
     protected override void Awake()
     {
         inputManager = InputManager.Instance;
+        if (inputManager == null)
+        {
+            Debug.LogError("InputManager.Instance es null en CineMachinePOVExtension.Awake");
+        }
         base.Awake();
     }
 
@@ -31,11 +35,18 @@ public class CineMachinePOVExtension : CinemachineExtension
                     isStartingRotationInitialized = true;
                 }
 
-                Vector2 deltaInput = inputManager.GetMouseDelta();
-                startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
-                startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
-                startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
-                state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+                if (inputManager != null)
+                {
+                    Vector2 deltaInput = inputManager.GetMouseDelta();
+                    startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
+                    startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
+                    startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
+                    state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+                }
+                else
+                {
+                    Debug.LogWarning("inputManager es null en CineMachinePOVExtension.PostPipelineStageCallback");
+                }
             }
         }
     }
