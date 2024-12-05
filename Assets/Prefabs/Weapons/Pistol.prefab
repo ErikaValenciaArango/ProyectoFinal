@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 644533241894474961}
   - component: {fileID: 5218188502564174582}
   - component: {fileID: 7142429187186012657}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4784834515467355513}
   - component: {fileID: 5653037969437858436}
   - component: {fileID: 6492963685172995962}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,9 +110,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308178669961165396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.626, y: -1.08, z: 2.664}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4114557781887674161}
@@ -121,7 +121,7 @@ Transform:
   - {fileID: 1845153931570926297}
   - {fileID: 3067398210348261538}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!33 &4784834515467355513
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 3839072700877738360}
   - component: {fileID: 1464542100089076901}
   - component: {fileID: 8766760546315023111}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 1845153931570926297}
   - component: {fileID: 1016211993541847547}
   - component: {fileID: 8048418817016992687}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3067398210348261538}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 4114557781887674161}
   - component: {fileID: 6849698243503404729}
   - component: {fileID: 1044933823059439127}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CasingExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

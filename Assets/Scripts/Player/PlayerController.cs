@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Enemy;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -18,8 +19,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float footstepInterval = 0.4f;
     private float footstepTimer = 0f;
 
+    // Animator de el player
+    private Animator animPlayer;
+
     private void Start()
     {
+        animPlayer = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
+        CambiarEstado(movement);
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
@@ -71,6 +77,17 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 cameraRotation = cameraTransform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0, cameraRotation.y, 0);
+    }
+
+
+    /// <summary>
+    /// Section of animator
+    /// </summary>
+
+    public void CambiarEstado(Vector2 e)
+    {
+        animPlayer.SetFloat("moveXFloat", e.x);
+        animPlayer.SetFloat("moveYFloat", e.y);
     }
 }
 
