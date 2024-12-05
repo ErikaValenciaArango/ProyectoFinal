@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
+        Debug.Log(movement);
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
