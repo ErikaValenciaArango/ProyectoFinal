@@ -5,12 +5,14 @@ public class WeaponSwitching : MonoBehaviour
     public int selectedWeapon = 0; // Índice de arma seleccionada
     [SerializeField] private Transform weaponHolder; // Holder donde las armas están instanciadas
     private InventoryManager inventoryManager;
+    private Animator animPlayer;
 
 
     void Start()
     {
         // Obtener referencia al InventoryManager
         inventoryManager = GetComponent<InventoryManager>();
+        animPlayer = GetComponent<Animator>();
 
         // Suscribir al evento OnWeaponAdded
         if (inventoryManager != null)
@@ -24,9 +26,15 @@ public class WeaponSwitching : MonoBehaviour
     void Update()
     {
         int previousSelectedWeapon = selectedWeapon;
+        //Aca verifico si hay armas en el holder
+        if (ActiveWeapon() != null)
+        {
+                ChangeState(ActiveWeapon());
+        }
 
         // Cambio de arma con el scroll del ratón
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+
         {
             if (selectedWeapon >= weaponHolder.childCount - 1)
             {
@@ -111,6 +119,30 @@ public class WeaponSwitching : MonoBehaviour
 
         return null; // Retorna null si no hay ninguna activa
     }
+
+    public void ChangeState(GameObject weapon)
+    {
+        string weaponName = weapon.name; // Suponiendo que los nombres de las armas están configurados
+        switch (weaponName)
+        {
+            case "Knife":
+                animPlayer.SetBool("KnifeBool", true);
+                animPlayer.SetBool("PistolBool", false);
+                animPlayer.SetBool("HandsBool", false);
+                break;
+            case "Pistol":
+                animPlayer.SetBool("KnifeBool", false);
+                animPlayer.SetBool("PistolBool", true);
+                animPlayer.SetBool("HandsBool", false);
+                break;
+
+            default:
+                Debug.Log("Arma no encontrada");
+                break;
+        }
+    }
+
+
 
 
 }
