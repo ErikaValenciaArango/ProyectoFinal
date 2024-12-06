@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go Back
+  m_text: Regresar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ESC: Pause'
+  m_text: 'ESC: Pausa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Left Mouse \nButton: \nAttack/Shoot\n\n\n\n\n\n\n"
+  m_text: "Bot\xF3n izquierdo \ndel mouse:\nAtacar/Disparar\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -2166,7 +2166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -274, y: -352}
+  m_AnchoredPosition: {x: -285, y: -352}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513016200
@@ -2189,13 +2189,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W: Move forward
-
-    S: Move backward
-
-    A: Move left
-
-    D: Move right'
+  m_text: "W: Avanzar  \r\nS: Retroceder  \r\nA: Mover a la izquierda  \r\nD: Mover
+    a la derecha"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -3108,7 +3103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.8912964, y: -22.078735}
+  m_AnchoredPosition: {x: 2.8913574, y: -22.078735}
   m_SizeDelta: {x: -54.5726, y: -215.3681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822420045
@@ -3472,7 +3467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: Creditos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a29c4328a22ffa4fb62feb4d92f6ab1, type: 2}
   m_sharedMaterial: {fileID: 3093621247141854162, guid: 6a29c4328a22ffa4fb62feb4d92f6ab1, type: 2}
@@ -3535,7 +3530,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -102.39911, w: 0}
+  m_margin: {x: -31.965454, y: 0, z: -102.39911, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3681,7 +3676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go Back
+  m_text: Regresar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -4405,7 +4400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mouse \nMovement: \nRotate Camera\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  m_text: "Movimiento \ndel mouse: \nRotar c\xE1mara\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
   m_sharedMaterial: {fileID: 4918659720150138019, guid: 709ea642d1c581b4888293a5a37eba56, type: 2}
@@ -5372,16 +5367,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Andres Barbosa - Developer
-
-    Daniel Ruiz - Developer
-
-    Erika Valencia
-    - UX/UI - Audio
-
-    Halisson Capera - Level design
-
-    Marlon Castro - UX/UI'
+  m_text: "Andr\xE9s Barbosa - Desarrollador  \r\nDaniel Ruiz - Desarrollador  \r\nErika
+    Valencia - UX/UI - Audio  \r\nHalisson Capera - Dise\xF1o de niveles  \r\nMarlon
+    Castro - UX/UI"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7c1b123eaa3afd468c63977a5018b9f, type: 2}
   m_sharedMaterial: {fileID: 4273912527887452213, guid: a7c1b123eaa3afd468c63977a5018b9f, type: 2}
@@ -6113,7 +6101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.8912964, y: -22.078735}
+  m_AnchoredPosition: {x: 2.8913574, y: -22.078735}
   m_SizeDelta: {x: -54.5726, y: -215.3681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083427509
