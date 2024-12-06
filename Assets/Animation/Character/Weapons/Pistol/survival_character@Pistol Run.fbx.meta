@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99867d3823987fa4e84794a43dd01d84
+guid: dca86ae4d7d74674ba43e40d71575535
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Pistol Strafe Rigth
+      name: Pistol Run
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0

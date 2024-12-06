@@ -21,17 +21,27 @@ public class PlayerController : MonoBehaviour
 
     // Animator de el player
     private Animator animPlayer;
+    private WeaponSwitching activeArm;
 
     private void Start()
     {
         animPlayer = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        activeArm = GetComponent<WeaponSwitching>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
     }
 
     void Update()
     {
+        //Aca verifico si hay armas en el holder
+        if (activeArm.ActiveWeapon() != null)
+        {
+            ChangeState(activeArm.ActiveWeapon());
+        }
+
+
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -39,7 +49,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
-        CambiarEstado(movement);
+        SetAnimation(movement);
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
@@ -84,10 +94,34 @@ public class PlayerController : MonoBehaviour
     /// Section of animator
     /// </summary>
 
-    public void CambiarEstado(Vector2 e)
+    public void SetAnimation(Vector2 e)
     {
-        animPlayer.SetFloat("moveXFloat", e.x);
-        animPlayer.SetFloat("moveYFloat", e.y);
+
+        // Solo actualizamos los valores del Animator si hay un cambio significativo
+        animPlayer.SetFloat("moveXFloat", e.x, 0.1f, Time.deltaTime);
+        animPlayer.SetFloat("moveYFloat", e.y, 0.1f, Time.deltaTime);
+    }
+
+    public void ChangeState(GameObject weapon)
+    {
+        string weaponName = weapon.name; // Suponiendo que los nombres de las armas están configurados
+        switch (weaponName)
+        {
+            case "Knife":
+                animPlayer.SetBool("KnifeBool",true);
+                animPlayer.SetBool("PistolBool", false);
+                animPlayer.SetBool("HandsBool", false);
+                break;
+            case "Pistol":
+                animPlayer.SetBool("KnifeBool", false);
+                animPlayer.SetBool("PistolBool", true);
+                animPlayer.SetBool("HandsBool", false);
+                break;
+
+            default:
+                Debug.Log("Arma no encontrada");
+                break;
+        }
     }
 }
 
