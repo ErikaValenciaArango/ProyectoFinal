@@ -93,5 +93,24 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Retorna el arma activa actualmente en el WeaponHolder.
+    /// </summary>
+    public GameObject ActiveWeapon()
+    {
+        int i = 0;
+        foreach (Transform weapon in weaponHolder) // Iterar sobre todas las armas
+        {
+            if (i == selectedWeapon && weapon.gameObject.activeSelf)
+            {
+                return weapon.gameObject; // Devuelve el arma activa
+            }
+
+            i++;
+        }
+
+        return null; // Retorna null si no hay ninguna activa
+    }
+
 
 }
