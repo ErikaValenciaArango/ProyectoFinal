@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4784834515467355513}
   - component: {fileID: 5653037969437858436}
   - component: {fileID: 6492963685172995962}
+  - component: {fileID: 7580163994746299579}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -186,6 +187,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 3067398210348261538}
   shootCooldown: 0.5
+  cargadorFull: 5
+--- !u!114 &7580163994746299579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308178669961165396}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbb86e32bcd7b94fb8aeb0f622a0a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIWeapon: {fileID: 0}
 --- !u!1 &6751602657917817357
 GameObject:
   m_ObjectHideFlags: 0
