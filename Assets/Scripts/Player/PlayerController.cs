@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        if (groundedPlayer && move.magnitude > 0f)
+        if (move.magnitude > 0f)
         {
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f)
             {
-                AudioManager.Instance.PlaySFX(stepsClip, 1f); 
+                AudioManager.Instance.PlaySFX(stepsClip, 1f);
                 footstepTimer = footstepInterval;
             }
         }
