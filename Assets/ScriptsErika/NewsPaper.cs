@@ -50,7 +50,7 @@ public class NewsPaper : MonoBehaviour
     {
         if (enRangoDeInteraccion && !panel.activeSelf)
         {
-            textoInteraccion.text = "Presiona F para interactuar"; // Establece el texto
+            textoInteraccion.text = "Press F to interact"; // Establece el texto
             textoInteraccion.gameObject.SetActive(true); // Muestra el texto
         }
         else
