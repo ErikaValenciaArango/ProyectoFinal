@@ -875,6 +875,11 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_ApplyBeforeBody: 0
+--- !u!4 &163080253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4064037499791091624, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+  m_PrefabInstance: {fileID: 3107470899940363067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170962978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,6 +3762,7 @@ MonoBehaviour:
   horizontalSpeed: 10
   verticalSpeed: 10
   clampAngle: 90
+  upperBody: {fileID: 163080253}
 --- !u!1 &1389237924
 GameObject:
   m_ObjectHideFlags: 0
