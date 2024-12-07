@@ -16,6 +16,11 @@ public class Shoot : MonoBehaviour
     int cargador; //van a ser las municiones actuales del arma
     public int cargadorFull = 0; // la municion maxima que va a tener el cargador
 
+
+    /// <summary>
+    /// Identacion de municion y armas
+    /// </summary>
+
     private void Start()
     {
         inputManager = InputManager.Instance;

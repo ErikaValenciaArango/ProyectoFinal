@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c8c8b6cb19c84048b2db160b1d0f17e, type: 3}
-  m_Name: Knife
+  m_Name: Hands
   m_EditorClassIdentifier: 
-  title: Knife
+  title: Hands
   icon: {fileID: 0}
-  description: Small knife to cut meat
-  prefab: {fileID: 6028230883932097713, guid: e2e4b39a7cc6d9d46870a6f86bd708ea, type: 3}
+  description: 
+  prefab: {fileID: 6277213792072017544, guid: a919c4a0166a2f947add21219b1cd034, type: 3}
   magazineSize: 0
   magazineCount: 0
-  range: 2
-  weaponType: 1
+  range: 0
+  weaponType: 2
   weaponStyle: 1

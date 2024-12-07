@@ -19,5 +19,5 @@ MonoBehaviour:
   magazineSize: 5
   magazineCount: 2
   range: 75
-  weaponType: 1
+  weaponType: 0
   weaponStyle: 0
