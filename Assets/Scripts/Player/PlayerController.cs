@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
 
     [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
+    //[SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
     private InputManager inputManager;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // Animator de el player
     private Animator animPlayer;
 
+
     private void Start()
     {
         animPlayer = GetComponent<Animator>();
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -39,18 +41,18 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
-        CambiarEstado(movement);
+        SetAnimation(movement);
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        if (groundedPlayer && move.magnitude > 0f)
+        if (move.magnitude > 0f)
         {
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f)
             {
-                AudioManager.Instance.PlaySFX(stepsClip, 1f); 
+                AudioManager.Instance.PlaySFX(stepsClip, 1f);
                 footstepTimer = footstepInterval;
             }
         }
@@ -77,6 +79,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 cameraRotation = cameraTransform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0, cameraRotation.y, 0);
+
+
     }
 
 
@@ -84,10 +88,12 @@ public class PlayerController : MonoBehaviour
     /// Section of animator
     /// </summary>
 
-    public void CambiarEstado(Vector2 e)
+    public void SetAnimation(Vector2 e)
     {
-        animPlayer.SetFloat("moveXFloat", e.x);
-        animPlayer.SetFloat("moveYFloat", e.y);
+
+        // Solo actualizamos los valores del Animator si hay un cambio significativo
+        animPlayer.SetFloat("moveXFloat", e.x, 0.1f, Time.deltaTime);
+        animPlayer.SetFloat("moveYFloat", e.y, 0.1f, Time.deltaTime);
     }
 }
 

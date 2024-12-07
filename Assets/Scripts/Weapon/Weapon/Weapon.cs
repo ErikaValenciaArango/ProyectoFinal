@@ -15,7 +15,7 @@ public class Weapon : Item
 
 public enum WeaponType
 {
-  Melee, Pistol
+    Pistol,Melee,Hands
 }
 
 public enum WeaponStyle

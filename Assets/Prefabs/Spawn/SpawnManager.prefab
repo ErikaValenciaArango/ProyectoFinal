@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1868073342016886874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5264930568947372842}
+  m_Layer: 0
+  m_Name: PointSpawnPistol
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5264930568947372842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868073342016886874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -208.979, y: 1114.252, z: 3033.884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4962328017463811433}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &3262253451201714094
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3262253451201714094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6830127, y: 0.18301274, z: 0.6830127, w: 0.18301274}
-  m_LocalPosition: {x: -190.026, y: 1116, z: 3039.446}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9659258, w: 0.2588191}
+  m_LocalPosition: {x: -218.338, y: 1115.841, z: 3037.933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4962328017463811433}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 150}
 --- !u!1 &4459403186337652071
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,13 +86,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459403186337652071}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -190.505, y: 1114, z: 3025.7253}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -204.347, y: 1114.211, z: 3037.644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4962328017463811433}
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
 --- !u!1 &5397092865745401100
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +125,8 @@ Transform:
   m_Children:
   - {fileID: 8319173051488232060}
   - {fileID: 4748437127863646890}
+  - {fileID: 5264930568947372842}
+  - {fileID: 6859719061339007915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3162319632684622934
@@ -114,3 +147,39 @@ MonoBehaviour:
     - {fileID: 8319173051488232060}
     - {fileID: 4748437127863646890}
     spawnCount: 1
+  - objectToSpawn: {fileID: 2308178669961165396, guid: e9fad61ce9350ca46b776c37e34b839f, type: 3}
+    spawnPoints:
+    - {fileID: 5264930568947372842}
+    - {fileID: 6859719061339007915}
+    spawnCount: 1
+--- !u!1 &6193265359902915876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6859719061339007915}
+  m_Layer: 0
+  m_Name: PointSpawnPistol
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6859719061339007915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193265359902915876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -214.604, y: 1113.094, z: 3032.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4962328017463811433}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}

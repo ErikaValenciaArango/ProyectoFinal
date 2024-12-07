@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     private PlayerHUD playerHUD;
 
     public event Action<Weapon> OnWeaponAdded; // Evento para notificar cuando se agrega un arma
+    public WeaponSwitching activeWeapon;
 
     void Start()
     {
@@ -44,6 +45,10 @@ public class InventoryManager : MonoBehaviour
 
     public Weapon GetItem(int index)
     {
+        Debug.Log(index);
+        Debug.Log(weapons[0]);
+        Debug.Log(weapons[1]);
+
         return weapons[index];
     }
 

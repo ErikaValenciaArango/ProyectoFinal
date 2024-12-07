@@ -17,7 +17,7 @@ MonoBehaviour:
   description: SmallPistoll
   prefab: {fileID: 2308178669961165396, guid: 60e373fc7b08e5748b9cc41dc819c9fa, type: 3}
   magazineSize: 5
-  magazineCount: 1
+  magazineCount: 2
   range: 75
-  weaponType: 1
+  weaponType: 0
   weaponStyle: 0

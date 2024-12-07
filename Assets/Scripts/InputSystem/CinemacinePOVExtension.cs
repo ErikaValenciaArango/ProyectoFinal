@@ -3,11 +3,11 @@ using Cinemachine;
 
 public class CineMachinePOVExtension : CinemachineExtension
 {
-    // Sensibilidad 
     [SerializeField] private float horizontalSpeed = 10f;
     [SerializeField] private float verticalSpeed = 10f;
-    // Angulo de rotacion
     [SerializeField] private float clampAngle = 80f;
+
+    [SerializeField] private Transform upperBody;
 
     private InputManager inputManager;
     private Vector3 startingRotation;
@@ -16,10 +16,6 @@ public class CineMachinePOVExtension : CinemachineExtension
     protected override void Awake()
     {
         inputManager = InputManager.Instance;
-        if (inputManager == null)
-        {
-            Debug.LogError("InputManager.Instance es null en CineMachinePOVExtension.Awake");
-        }
         base.Awake();
     }
 
@@ -35,17 +31,24 @@ public class CineMachinePOVExtension : CinemachineExtension
                     isStartingRotationInitialized = true;
                 }
 
-                if (inputManager != null)
+                Vector2 deltaInput = inputManager.GetMouseDelta();
+                startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
+                startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
+                startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
+
+                float ClampRootX = Mathf.Clamp(startingRotation.y, -28, 6);
+
+                state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+
+
+                // Rotar el torso hacia la misma dirección
+                if (upperBody != null)
                 {
-                    Vector2 deltaInput = inputManager.GetMouseDelta();
-                    startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
-                    startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
-                    startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
-                    state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
-                }
-                else
-                {
-                    Debug.LogWarning("inputManager es null en CineMachinePOVExtension.PostPipelineStageCallback");
+                    float ClampRootBodyY = Mathf.Clamp(upperBody.localRotation.eulerAngles.y, -6, 6);
+
+
+                    Quaternion torsoRotation = Quaternion.Euler(-ClampRootX, ClampRootBodyY, 0f);
+                    upperBody.localRotation = torsoRotation;
                 }
             }
         }

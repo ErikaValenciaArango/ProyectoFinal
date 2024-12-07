@@ -13,9 +13,19 @@ public class Shoot : MonoBehaviour
 
     private AudioClip shootClip;
 
+    int cargador; //van a ser las municiones actuales del arma
+    public int cargadorFull = 0; // la municion maxima que va a tener el cargador
+
+
+    /// <summary>
+    /// Identacion de municion y armas
+    /// </summary>
+
     private void Start()
     {
         inputManager = InputManager.Instance;
+
+        cargador = cargadorFull;
 
         // Carga el sonido desde Resources
         shootClip = Resources.Load<AudioClip>("Audio/AutoGun_3p_02");
@@ -30,10 +40,20 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         Shooting();
+
+        if(Input.GetKeyDown("r"))
+        {
+            recharge();
+        }
     }
 
     void Shooting()
     {
+        //esta parte verifica si el cargador esta lleno si no lo esta lo devuelve
+        if(cargador <= 0)
+        {
+            return;
+        }
         // Verificar si el tiempo actual es mayor o igual al tiempo del próximo disparo permitido
         if (Time.time >= nextShootTime)
         {
@@ -71,7 +91,14 @@ public class Shoot : MonoBehaviour
 
                 // Actualizar el tiempo del próximo disparo permitido
                 nextShootTime = Time.time + shootCooldown;
+
+                //resta uno a la municion
+                cargador -= 1;
             }
         }
+    }
+    void recharge()
+    {
+        cargador = cargadorFull;
     }
 }

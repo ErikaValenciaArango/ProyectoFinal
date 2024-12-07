@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estado: 0
-  distanciaSeguir: 2.5
+  distanciaSeguir: 3.07
   distanciaAtacar: 1.2
   distanciaEscapar: 4
   distancia: 0
