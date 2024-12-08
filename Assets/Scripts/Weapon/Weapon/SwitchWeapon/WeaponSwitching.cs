@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public Transform weaponHolder; // Holder donde las armas están instanciadas
+    public GameObject currentWeapon = null;
+    public Transform weaponHolder = null; // Holder donde las armas están instanciadas
+    
     private InventoryManager inventoryManager;
     private Animator animPlayer;
 
-    private GameObject currentWeapon = null;
     private int selectedWeapon = 1; // Inicialmente no hay arma seleccionada
     private float lastScrollTime = 0f; // Registro del último cambio con la rueda del ratón
     private float scrollCooldown = 0.07f; // Tiempo mínimo entre cambios (en segundos)
@@ -81,5 +82,9 @@ public class WeaponSwitching : MonoBehaviour
         currentWeapon = Instantiate(inventoryManager.GetItem(selectedWeapon).prefab, weaponHolder);
     }
 
+    public int SetSelectdWeapon()
+    {
+        return selectedWeapon;
+    }
 
 }

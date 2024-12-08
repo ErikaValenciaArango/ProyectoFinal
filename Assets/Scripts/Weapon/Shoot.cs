@@ -6,7 +6,6 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Transform shootPoint;
 
     // Tiempo de cooldown entre disparos
-    [SerializeField] private float shootCooldown = 0.5f;
     private float nextShootTime = 0f;
 
     private InputManager inputManager;
@@ -20,12 +19,24 @@ public class Shoot : MonoBehaviour
     /// <summary>
     /// Identacion de municion y armas
     /// </summary>
+    private GameObject player; 
+    private InventoryManager inventoryManager;
+    private WeaponSwitching weaponSwitching;
+
+
+    //At moment
+    Vector3 targetPoint;
 
     private void Start()
     {
         inputManager = InputManager.Instance;
 
         cargador = cargadorFull;
+
+        //Recursos del objeto
+        player = GameObject.FindGameObjectWithTag("Player");
+        inventoryManager = player.GetComponent<InventoryManager>();
+        weaponSwitching = player.GetComponent<WeaponSwitching>();
 
         // Carga el sonido desde Resources
         shootClip = Resources.Load<AudioClip>("Audio/AutoGun_3p_02");
@@ -54,6 +65,9 @@ public class Shoot : MonoBehaviour
         {
             return;
         }
+
+        Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
+
         // Verificar si el tiempo actual es mayor o igual al tiempo del próximo disparo permitido
         if (Time.time >= nextShootTime)
         {
@@ -66,21 +80,12 @@ public class Shoot : MonoBehaviour
                 bullet.transform.rotation = shootPoint.rotation;
                 bullet.SetActive(true);
 
-                // Calcular la dirección hacia el centro de la pantalla
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-                Vector3 targetPoint;
+                //Vector3 targetPoint;
+                Debug.Log("Shoot");
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    targetPoint = hit.point;
-                }
-                else
-                {
-                    targetPoint = ray.GetPoint(1000); // Un punto lejano en la dirección del ray
-                }
+                RayCastShoot(currentWeapon);
 
-                Vector3 direction = (targetPoint - shootPoint.position).normalized;
+                 Vector3 direction = (targetPoint - shootPoint.position).normalized;
 
                 // Debug para inspeccionar la dirección
                 Debug.DrawRay(shootPoint.position, direction * 5, Color.red, 2f);
@@ -90,13 +95,35 @@ public class Shoot : MonoBehaviour
                 bulletScript.SetDirection(direction);
 
                 // Actualizar el tiempo del próximo disparo permitido
-                nextShootTime = Time.time + shootCooldown;
+                nextShootTime = Time.time + currentWeapon.fireRate;
 
                 //resta uno a la municion
                 cargador -= 1;
             }
         }
     }
+
+    void RayCastShoot(Weapon currentWeapon)
+    {
+        // Calcular la dirección hacia el centro de la pantalla
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+
+        if (Physics.Raycast(ray, out hit, currentWeapon.range))
+        {
+            Debug.Log(hit.transform.name);
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(1000); // Un punto lejano en la dirección del ray
+        }
+
+        Instantiate(currentWeapon.particle[0], shootPoint);
+        Instantiate(currentWeapon.particle[1], shootPoint);
+    }
+
+
     void recharge()
     {
         cargador = cargadorFull;

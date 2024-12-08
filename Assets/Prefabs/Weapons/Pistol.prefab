@@ -116,11 +116,11 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3067398210348261538}
   - {fileID: 4114557781887674161}
   - {fileID: 644533241894474961}
   - {fileID: 3839072700877738360}
   - {fileID: 1845153931570926297}
-  - {fileID: 3067398210348261538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -15, y: 90, z: 90}
 --- !u!33 &4784834515467355513
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 3067398210348261538}
-  shootCooldown: 0.5
   cargadorFull: 5
 --- !u!114 &7580163994746299579
 MonoBehaviour:
