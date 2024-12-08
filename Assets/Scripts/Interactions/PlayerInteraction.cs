@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
             //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
             if (newItem != null)
             {
-              inventory.AddItem(newItem);
+                inventory.AddItem(newItem);
             }
         }
     }
@@ -54,6 +54,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
                     newItem = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
+
                 }
 
 

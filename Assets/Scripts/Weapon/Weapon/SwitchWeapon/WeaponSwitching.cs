@@ -6,49 +6,72 @@ public class WeaponSwitching : MonoBehaviour
     private InventoryManager inventoryManager;
     private Animator animPlayer;
 
-
-    //Weapon shose
-    [SerializeField] Weapon defaultHandsWeapon = null;
-    public int selectedWeapon = 2; // Índice de arma seleccionada
-    public GameObject currentWeapon = null;
+    private GameObject currentWeapon = null;
+    private int selectedWeapon = 1; // Inicialmente no hay arma seleccionada
+    private float lastScrollTime = 0f; // Registro del último cambio con la rueda del ratón
+    private float scrollCooldown = 0.07f; // Tiempo mínimo entre cambios (en segundos)
 
     void Start()
     {
         // Obtener referencia al InventoryManager
         inventoryManager = GetComponent<InventoryManager>();
         animPlayer = GetComponent<Animator>();
-
-        inventoryManager.AddItem(defaultHandsWeapon);
-        EquipWeapon(inventoryManager.GetItem(1));
     }
 
     void Update()
     {
-        int previousSelectedWeapon = selectedWeapon;
-
-        Debug.Log(selectedWeapon);
-
-        if(Input.GetKeyDown(KeyCode.Alpha1) && selectedWeapon != 1)
-        {
-            UnequipWeapon();
-            EquipWeapon (inventoryManager.GetItem(1));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && selectedWeapon != 0)
-        {
-            UnequipWeapon();
-            EquipWeapon(inventoryManager.GetItem(0));
-        }
-
+        HandleInput();
     }
 
-    void EquipWeapon(Weapon weapon)
+    private void HandleInput()
     {
-        animPlayer.SetInteger("weaponType", (int)weapon.weaponType);
+        int previousSelectedWeapon = selectedWeapon;
+        int newSelectedWeapon = selectedWeapon;
+
+        // Seleccionar arma con teclas numéricas
+        if (Input.GetKeyDown(KeyCode.Alpha1)) newSelectedWeapon = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) newSelectedWeapon = 0;
+
+        // Seleccionar arma con la rueda del ratón (solo si ha pasado el cooldown)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (Time.time - lastScrollTime > scrollCooldown)
+        {
+            if (scroll > 0f) newSelectedWeapon = (selectedWeapon + 1) % inventoryManager.InventorySize;
+            if (scroll < 0f) newSelectedWeapon = (selectedWeapon - 1 + inventoryManager.InventorySize) % inventoryManager.InventorySize;
+
+            lastScrollTime = Time.time; // Actualizar el tiempo del último cambio
+        }
+
+
+        // Verificar si el nuevo slot no está vacío
+        if (inventoryManager.GetItem(newSelectedWeapon) == null)
+        {
+            Debug.LogWarning("El slot seleccionado está vacío. No se puede cambiar.");
+            return;
+        }
+
+        // Si la selección cambió, equipar el arma correspondiente
+        if (previousSelectedWeapon != newSelectedWeapon)
+        {
+            selectedWeapon = newSelectedWeapon;
+            UnequipWeapon();
+            EquipWeapon(inventoryManager.GetItem(selectedWeapon));
+        }
+    }
+
+
+     public void EquipWeapon(Weapon weapon)
+    {
+
+        if (weapon == null) return;
+
         selectedWeapon = (int)weapon.weaponStyle;
+        // Actualizar animaciones
+        animPlayer.SetInteger("weaponType", (int)weapon.weaponType);
 
     }
 
-    void UnequipWeapon()
+    public  void UnequipWeapon()
     {
         animPlayer.SetTrigger("unequipWeapon");
     }
@@ -57,7 +80,7 @@ public class WeaponSwitching : MonoBehaviour
     {
         Destroy(currentWeapon);
         currentWeapon = Instantiate(inventoryManager.GetItem(selectedWeapon).prefab, weaponHolder);
-
     }
+
 
 }

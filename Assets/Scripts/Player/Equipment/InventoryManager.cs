@@ -1,4 +1,6 @@
 using System;
+using System.Reflection;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -6,8 +8,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Weapon[] weapons;
     private PlayerHUD playerHUD;
 
-    public event Action<Weapon> OnWeaponAdded; // Evento para notificar cuando se agrega un arma
     public WeaponSwitching activeWeapon;
+    //validar el tamano dle inventario
+    public int InventorySize => weapons.Length;
 
     void Start()
     {
@@ -15,14 +18,21 @@ public class InventoryManager : MonoBehaviour
         InitVariables();
     }
 
+
     private void InitVariables()
     {
+
         weapons = new Weapon[2]; // Inicializaci�n de armas, ajusta seg�n sea necesario
+        activeWeapon = GetComponent<WeaponSwitching>();
     }
 
     public void AddItem(Weapon item)
     {
+
         int newItemIndex = (int)item.weaponStyle;
+
+
+
 
         if (weapons[newItemIndex] != null)
         {
@@ -31,8 +41,8 @@ public class InventoryManager : MonoBehaviour
 
         weapons[newItemIndex] = item;
 
-        // Disparar evento para notificar que un arma ha sido a�adida
-        OnWeaponAdded?.Invoke(item);
+        activeWeapon.UnequipWeapon();
+        activeWeapon.EquipWeapon(item);
 
         // Actualizar UI del arma (puedes cambiar seg�n tu implementaci�n de UI)
         playerHUD.UpdateWeaponUI(item);
@@ -45,9 +55,6 @@ public class InventoryManager : MonoBehaviour
 
     public Weapon GetItem(int index)
     {
-        Debug.Log(index);
-        Debug.Log(weapons[0]);
-        Debug.Log(weapons[1]);
 
         return weapons[index];
     }
