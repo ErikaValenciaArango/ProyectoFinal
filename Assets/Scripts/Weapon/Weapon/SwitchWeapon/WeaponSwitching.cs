@@ -46,7 +46,6 @@ public class WeaponSwitching : MonoBehaviour
         // Verificar si el nuevo slot no está vacío
         if (inventoryManager.GetItem(newSelectedWeapon) == null)
         {
-            Debug.LogWarning("El slot seleccionado está vacío. No se puede cambiar.");
             return;
         }
 
