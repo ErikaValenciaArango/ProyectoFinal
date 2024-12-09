@@ -15,10 +15,11 @@ public class WeaponShooting : MonoBehaviour
     /// <summary>
     /// Identacion de municion y armas
     /// </summary>
-    private GameObject player;
     private InventoryManager inventoryManager;
     private WeaponSwitching weaponSwitching;
+    private PlayerHUD playerHUD;
 
+    public bool canReload;
     [SerializeField] private bool canShoot;
     [SerializeField] private int primaryCurrentAmmo;
     [SerializeField] private int primaryCurrenttAmmoStorage;
@@ -34,6 +35,7 @@ public class WeaponShooting : MonoBehaviour
         //Recursos del objeto
         inventoryManager = GetComponent<InventoryManager>();
         weaponSwitching = GetComponent<WeaponSwitching>();
+        playerHUD = GetComponent<PlayerHUD>();
 
         // Carga el sonido desde Resources
         shootClip = Resources.Load<AudioClip>("Audio/AutoGun_3p_02");
@@ -70,7 +72,7 @@ public class WeaponShooting : MonoBehaviour
            
         CheckCanShoot(weaponSwitching.SetSelectdWeapon());
 
-        if (canShoot)
+        if (canShoot /*&& canReload*/)
         {
 
             Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
@@ -143,6 +145,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 primaryCurrentAmmo -= currentAmmoUsed;
                 primaryCurrenttAmmoStorage -= currentStoredAmmoUsed;
+                playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
             }
         }
     }
@@ -174,27 +177,48 @@ public class WeaponShooting : MonoBehaviour
     }
 
 
-    private void Reload(int slot)
+    private void addAmmo(int slot,int currentAmmoAdd, int currentStoredAmmoAdded )
     {
+        //Primary
         if (slot == 0)
         {
-            int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
 
-            if (primaryCurrenttAmmoStorage >= ammoToReload)
-            {
-                if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
-                    Debug.Log("Magazine is already full");
+                primaryCurrentAmmo += currentAmmoAdd;
+                primaryCurrenttAmmoStorage += currentStoredAmmoAdded;
+                playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
 
-                primaryCurrentAmmo += ammoToReload;
-                primaryCurrenttAmmoStorage -= ammoToReload;
-                primaryMagazineIsEmpty = false;
-                CheckCanShoot(slot);
-            }
-            else
-                Debug.Log("Not enaugh ammo to reload");
-            
-           
         }
+    }
+
+    private void Reload(int slot)
+    {
+        /*if (canReload == true)
+        {*/
+            if (slot == 0)
+            {
+                int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
+
+                if (primaryCurrenttAmmoStorage >= ammoToReload)
+                {
+                    if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
+                    {
+                        Debug.Log("Magazine is already full");
+                        return;
+                    }    
+
+                    addAmmo(slot,ammoToReload,0);
+                    UseAmmo(slot, 0,ammoToReload);
+                    primaryMagazineIsEmpty = false;
+                    CheckCanShoot(slot);
+                }
+                else
+                    Debug.Log("Not enaugh ammo to reload");
+
+
+            }
+    /*    }
+        else
+            Debug.Log("Can't reload at the moment");*/
     }
 
 }

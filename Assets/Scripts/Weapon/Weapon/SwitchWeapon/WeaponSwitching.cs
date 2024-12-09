@@ -13,8 +13,9 @@ public class WeaponSwitching : MonoBehaviour
     private float lastScrollTime = 0f; // Registro del último cambio con la rueda del ratón
     private float scrollCooldown = 0.07f; // Tiempo mínimo entre cambios (en segundos)
 
-    //Try
+    //Ammo
     private PlayerHUD playerHUD;
+    private WeaponShooting shoot;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class WeaponSwitching : MonoBehaviour
         inventoryManager = GetComponent<InventoryManager>();
         animPlayer = GetComponent<Animator>();
         playerHUD = GetComponent<PlayerHUD>();
+        shoot = GetComponent<WeaponShooting>();
     }
 
     void Update()
@@ -86,7 +88,21 @@ public class WeaponSwitching : MonoBehaviour
         Destroy(currentWeapon);
         currentWeapon = Instantiate(inventoryManager.GetItem(selectedWeapon).prefab, weaponHolder);
         currentWeaponBarrel = currentWeapon.transform.GetChild(0);
+        //Instant animations reload hear
     }
+    /// <summary>
+    /// When habe a animation
+    public void StartReload()
+    {
+        shoot.canReload = false;
+    }
+
+    public void EndReload()
+    {
+        shoot.canReload = true;
+    }
+
+    /// </summary>
 
     public int SetSelectdWeapon()
     {
