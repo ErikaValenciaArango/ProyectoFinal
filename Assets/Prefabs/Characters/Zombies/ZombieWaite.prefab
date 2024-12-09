@@ -704,6 +704,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 289866376357816594}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -331169380219464011}
   m_SourcePrefab: {fileID: 100100000, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
 --- !u!1 &2298654480731344665 stripped
 GameObject:
@@ -766,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estado: 0
-  distanciaSeguir: 2.5
+  distanciaSeguir: 3.07
   distanciaAtacar: 1.2
   distanciaEscapar: 4
   distancia: 0
@@ -796,3 +799,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 2.0454457, z: 0.6}
   m_Center: {x: 0, y: 1.0127228, z: 0}
+--- !u!114 &-331169380219464011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298654480731344665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87907af312ad12f46a1562a11b3009ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

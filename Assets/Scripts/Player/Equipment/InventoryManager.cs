@@ -1,12 +1,16 @@
 using System;
+using System.Reflection;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private Weapon[] weapons;
-    private PlayerHUD playerHUD;
 
-    public event Action<Weapon> OnWeaponAdded; // Evento para notificar cuando se agrega un arma
+    public WeaponSwitching activeWeapon;
+    public WeaponShooting Shoot;
+    //validar el tamano dle inventario
+    public int InventorySize => weapons.Length;
 
     void Start()
     {
@@ -14,27 +18,33 @@ public class InventoryManager : MonoBehaviour
         InitVariables();
     }
 
+
     private void InitVariables()
     {
-        weapons = new Weapon[2]; // Inicialización de armas, ajusta según sea necesario
+
+        weapons = new Weapon[2]; // Inicializaciï¿½n de armas, ajusta segï¿½n sea necesario
+        activeWeapon = GetComponent<WeaponSwitching>();
     }
 
     public void AddItem(Weapon item)
     {
+
         int newItemIndex = (int)item.weaponStyle;
 
-            if (weapons[newItemIndex] != null)
-            {
-                RemoveItem(newItemIndex);
-            }
+
+
+
+        if (weapons[newItemIndex] != null)
+        {
+            RemoveItem(newItemIndex);
+        }
 
         weapons[newItemIndex] = item;
 
-        // Disparar evento para notificar que un arma ha sido añadida
-        OnWeaponAdded?.Invoke(item);
+        activeWeapon.UnequipWeapon();
+        activeWeapon.EquipWeapon(item);
+        Shoot.InitAmmo((int)item.weaponStyle, item);
 
-        // Actualizar UI del arma (puedes cambiar según tu implementación de UI)
-        playerHUD.UpdateWeaponUI(item);
     }
 
     public void RemoveItem(int index)
@@ -44,11 +54,12 @@ public class InventoryManager : MonoBehaviour
 
     public Weapon GetItem(int index)
     {
+
         return weapons[index];
     }
 
     private void GetReferences()
     {
-        playerHUD = GetComponent<PlayerHUD>();
+        Shoot = GetComponent<WeaponShooting>();
     }
 }

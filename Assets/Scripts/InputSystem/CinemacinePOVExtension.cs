@@ -3,11 +3,11 @@ using Cinemachine;
 
 public class CineMachinePOVExtension : CinemachineExtension
 {
-    // Sensibilidad 
     [SerializeField] private float horizontalSpeed = 10f;
     [SerializeField] private float verticalSpeed = 10f;
-    // Angulo de rotacion
     [SerializeField] private float clampAngle = 80f;
+
+    [SerializeField] private Transform upperBody;
 
     private InputManager inputManager;
     private Vector3 startingRotation;
@@ -35,7 +35,21 @@ public class CineMachinePOVExtension : CinemachineExtension
                 startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
                 startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
                 startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
+
+                float ClampRootX = Mathf.Clamp(startingRotation.y, -28, 6);
+
                 state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+
+
+                // Rotar el torso hacia la misma dirección
+                if (upperBody != null)
+                {
+                    float ClampRootBodyY = Mathf.Clamp(upperBody.localRotation.eulerAngles.y, -6, 6);
+
+
+                    Quaternion torsoRotation = Quaternion.Euler(-ClampRootX, ClampRootBodyY, 0f);
+                    upperBody.localRotation = torsoRotation;
+                }
             }
         }
     }

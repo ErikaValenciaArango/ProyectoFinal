@@ -16,8 +16,12 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: SmallPistoll
   prefab: {fileID: 2308178669961165396, guid: 60e373fc7b08e5748b9cc41dc819c9fa, type: 3}
-  magazineSize: 5
-  magazineCount: 1
+  particle:
+  - {fileID: 6050439023782756594, guid: 20e368c9a75394349a0334975b235a0b, type: 3}
+  - {fileID: 9130351426018165186, guid: d83786de80161774cafe2070f889fd0d, type: 3}
+  magazineSize: 2
+  storedAmmo: 4
   range: 75
-  weaponType: 1
+  fireRate: 0.5
+  weaponType: 0
   weaponStyle: 0

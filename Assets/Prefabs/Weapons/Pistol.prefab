@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 644533241894474961}
   - component: {fileID: 5218188502564174582}
   - component: {fileID: 7142429187186012657}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 2443609069666585242}
   - component: {fileID: 4784834515467355513}
   - component: {fileID: 5653037969437858436}
-  - component: {fileID: 6492963685172995962}
-  m_Layer: 8
+  - component: {fileID: 7580163994746299579}
+  m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,18 +110,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308178669961165396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.4304593, y: 0.56098557, z: 0.56098557, w: 0.4304593}
+  m_LocalPosition: {x: 0.026, y: 0, z: -0.035}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3067398210348261538}
   - {fileID: 4114557781887674161}
   - {fileID: 644533241894474961}
   - {fileID: 3839072700877738360}
   - {fileID: 1845153931570926297}
-  - {fileID: 3067398210348261538}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: -15, y: 90, z: 90}
 --- !u!33 &4784834515467355513
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -172,20 +172,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6492963685172995962
+--- !u!114 &7580163994746299579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308178669961165396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807cf5c52b3bb1044a712ca5aaf7e7c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fbb86e32bcd7b94fb8aeb0f622a0a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 3067398210348261538}
-  shootCooldown: 0.5
+  UIWeapon: {fileID: 0}
 --- !u!1 &6751602657917817357
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +196,7 @@ GameObject:
   - component: {fileID: 3839072700877738360}
   - component: {fileID: 1464542100089076901}
   - component: {fileID: 8766760546315023111}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +279,7 @@ GameObject:
   - component: {fileID: 1845153931570926297}
   - component: {fileID: 1016211993541847547}
   - component: {fileID: 8048418817016992687}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3067398210348261538}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +393,7 @@ GameObject:
   - component: {fileID: 4114557781887674161}
   - component: {fileID: 6849698243503404729}
   - component: {fileID: 1044933823059439127}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CasingExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
