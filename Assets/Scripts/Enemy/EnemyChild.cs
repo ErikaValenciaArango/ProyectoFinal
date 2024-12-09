@@ -10,7 +10,7 @@ public class EnemyChild : Enemy
     public Animator animationChild;
 
     //Dano del enemigo
-    public float damage = 3f;
+    public float damage = 10f;
 
 
     void Start()
@@ -67,7 +67,7 @@ public class EnemyChild : Enemy
     {
         if (agent != null && target != null)
         {
-           target.GetComponent<Personaje>().personajeVida.CausarDano(damage);
+            target.GetComponent<CharacterStats>().TakeDamage((int)damage);
         }
     }
 

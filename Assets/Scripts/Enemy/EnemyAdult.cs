@@ -85,7 +85,7 @@ public class EnemyAdult : Enemy
     {
         if (target != null && target != null)
         {
-            target.GetComponent<Personaje>().personajeVida.CausarDano(damage);
+            target.GetComponent<CharacterStats>().TakeDamage((int)damage);
         }
     }
 }

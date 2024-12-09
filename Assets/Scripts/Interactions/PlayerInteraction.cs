@@ -56,25 +56,28 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.tag == "Interactable") // Si se está mirando un objeto interactuable
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
-
-                if (hit.transform.GetComponent<PickupItem>().item as Weapon)
+                if (hit.transform.TryGetComponent<PickupItem>(out PickupItem pickupItem))
                 {
-                    //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
-                    newWeapon = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
+                    if (hit.transform.GetComponent<PickupItem>().item as Weapon)
+                    {
+                        //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
+                        newWeapon = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
 
-                }
-                else if (hit.transform.GetComponent<PickupItem>().item as Consumable)
-                {
-                    newItem = hit.transform.GetComponent<PickupItem>()?.item as Consumable;
-                    if (newItem.type == ConsumableType.Medkit)
-                    {
-                        //Heal
                     }
-                    else if (newItem.type == ConsumableType.Ammo)
+                    else if (hit.transform.GetComponent<PickupItem>().item as Consumable)
                     {
-                        //Ammo
+                        newItem = hit.transform.GetComponent<PickupItem>()?.item as Consumable;
+                        if (newItem.type == ConsumableType.Medkit)
+                        {
+                            //Heal
+                        }
+                        else if (newItem.type == ConsumableType.Ammo)
+                        {
+                            //Ammo
+                        }
                     }
                 }
+
 
 
 

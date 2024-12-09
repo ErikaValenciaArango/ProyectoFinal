@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private WeaponUI WeaponUI;
+    [SerializeField] private PlayerUI PlayerUI;
+
+
+
 
     public void UpdateWeaponUI(Weapon newWeapon)
     {
@@ -16,5 +17,11 @@ public class PlayerHUD : MonoBehaviour
     public void UpdateWeaponAmmoUI(int current, int storedAmmo)
     {
         WeaponUI.UpdateAmmoUI(current, storedAmmo);
+    }
+
+    public void UpdateHealth (int currentHealth, int maxHealth)
+    {
+        //Aca se manipula la vida del personaje
+        PlayerUI.ChekHealth(currentHealth, maxHealth);
     }
 }

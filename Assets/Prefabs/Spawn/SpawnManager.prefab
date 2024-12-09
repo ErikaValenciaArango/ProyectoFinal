@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1868073342016886874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -208.979, y: 1114.252, z: 3033.884}
+  m_LocalPosition: {x: -204.005, y: 1113.842, z: 3036.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3262253451201714094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.9659258, w: 0.2588191}
-  m_LocalPosition: {x: -218.338, y: 1115.841, z: 3037.933}
+  m_LocalPosition: {x: -218.338, y: 1114.498, z: 3037.933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 4459403186337652071}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: -204.347, y: 1114.211, z: 3037.644}
+  m_LocalPosition: {x: -203.842, y: 1113.843, z: 3038.307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,8 +149,8 @@ MonoBehaviour:
     spawnCount: 1
   - objectToSpawn: {fileID: 2308178669961165396, guid: e9fad61ce9350ca46b776c37e34b839f, type: 3}
     spawnPoints:
-    - {fileID: 5264930568947372842}
     - {fileID: 6859719061339007915}
+    - {fileID: 5264930568947372842}
     spawnCount: 1
 --- !u!1 &6193265359902915876
 GameObject:
@@ -176,10 +176,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6193265359902915876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -214.604, y: 1113.094, z: 3032.703}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -214.279, y: 1114.181, z: 3033.153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4962328017463811433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
