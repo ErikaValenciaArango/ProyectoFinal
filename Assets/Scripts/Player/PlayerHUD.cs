@@ -7,9 +7,14 @@ using UnityEngine.UI;
 public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private WeaponUI WeaponUI;
-    
+
     public void UpdateWeaponUI(Weapon newWeapon)
     {
-        WeaponUI.UpdateInfo(newWeapon.magazineSize, newWeapon.magazineCount);
+        WeaponUI.UpdateInfo(newWeapon.magazineSize, newWeapon.storedAmmo);
+    }
+
+    public void UpdateWeaponAmmoUI(int current, int storedAmmo)
+    {
+        WeaponUI.UpdateAmmoUI(current, storedAmmo);
     }
 }

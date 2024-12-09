@@ -2,147 +2,111 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public int selectedWeapon = 0; // Índice de arma seleccionada
-    [SerializeField] private Transform weaponHolder; // Holder donde las armas están instanciadas
+    public GameObject currentWeapon = null;
+    public Transform weaponHolder = null; // Holder donde las armas están instanciadas
+    public Transform currentWeaponBarrel = null;
+    
     private InventoryManager inventoryManager;
     private Animator animPlayer;
 
+    private int selectedWeapon = 1; // Inicialmente no hay arma seleccionada
+    private float lastScrollTime = 0f; // Registro del último cambio con la rueda del ratón
+    private float scrollCooldown = 0.07f; // Tiempo mínimo entre cambios (en segundos)
+
+    //Ammo
+    private PlayerHUD playerHUD;
+    private WeaponShooting shoot;
 
     void Start()
     {
         // Obtener referencia al InventoryManager
         inventoryManager = GetComponent<InventoryManager>();
         animPlayer = GetComponent<Animator>();
-
-        // Suscribir al evento OnWeaponAdded
-        if (inventoryManager != null)
-        {
-            inventoryManager.OnWeaponAdded += EquipWeaponFromInventory;
-        }
-
-        SelectWeapon();
+        playerHUD = GetComponent<PlayerHUD>();
+        shoot = GetComponent<WeaponShooting>();
     }
 
     void Update()
     {
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         int previousSelectedWeapon = selectedWeapon;
-        //Aca verifico si hay armas en el holder
-        if (ActiveWeapon() != null)
+        int newSelectedWeapon = selectedWeapon;
+
+        // Seleccionar arma con teclas numéricas
+        if (Input.GetKeyDown(KeyCode.Alpha1)) newSelectedWeapon = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) newSelectedWeapon = 0;
+
+        // Seleccionar arma con la rueda del ratón (solo si ha pasado el cooldown)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (Time.time - lastScrollTime > scrollCooldown)
         {
-                ChangeState(ActiveWeapon());
+            if (scroll > 0f) newSelectedWeapon = (selectedWeapon + 1) % inventoryManager.InventorySize;
+            if (scroll < 0f) newSelectedWeapon = (selectedWeapon - 1 + inventoryManager.InventorySize) % inventoryManager.InventorySize;
+
+            lastScrollTime = Time.time; // Actualizar el tiempo del último cambio
         }
 
-        // Cambio de arma con el scroll del ratón
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
 
+        // Verificar si el nuevo slot no está vacío
+        if (inventoryManager.GetItem(newSelectedWeapon) == null)
         {
-            if (selectedWeapon >= weaponHolder.childCount - 1)
-            {
-                selectedWeapon = 0;
-            }
-            else
-            {
-                selectedWeapon++;
-            }
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-            {
-                selectedWeapon = weaponHolder.childCount - 1;
-            }
-            else
-            {
-                selectedWeapon--;
-            }
+            return;
         }
 
-        // Si el arma seleccionada ha cambiado, actualiza la visualización
-        if (previousSelectedWeapon != selectedWeapon)
+        // Si la selección cambió, equipar el arma correspondiente
+        if (previousSelectedWeapon != newSelectedWeapon)
         {
-            SelectWeapon();
+            selectedWeapon = newSelectedWeapon;
+            UnequipWeapon();
+            EquipWeapon(inventoryManager.GetItem(selectedWeapon));
         }
     }
 
-    void SelectWeapon()
+
+     public void EquipWeapon(Weapon weapon)
     {
-        int i = 0;
-        foreach (Transform weapon in weaponHolder) // Iterar sobre las armas en el holder
-        {
-            if (i == selectedWeapon)
-            {
-                weapon.gameObject.SetActive(true); // Activar la arma seleccionada
-            }
-            else
-            {
-                weapon.gameObject.SetActive(false); // Desactivar las demás armas
-            }
 
-            i++;
-        }
+        if (weapon == null) return;
+
+        selectedWeapon = (int)weapon.weaponStyle;
+        // Actualizar animaciones
+        animPlayer.SetInteger("weaponType", (int)weapon.weaponType);
+        playerHUD.UpdateWeaponUI(weapon);
     }
 
-    void EquipWeaponFromInventory(Weapon weapon)
+    public  void UnequipWeapon()
     {
-        // Instanciamos el arma en el WeaponHolder
-        GameObject weaponInstance = Instantiate(weapon.prefab, weaponHolder);
-        // Aquí podrías agregar cualquier animación o configuración adicional para el arma instanciada
-        weaponInstance.name = weapon.name; // Opcional: nombrar el objeto como el arma
-        // Si es el primer arma, la activamos directamente
-        if (weaponHolder.childCount == 1)
-        {
-            weaponInstance.SetActive(true);  // La primera arma debe estar visible
-            selectedWeapon = 0;  // Seleccionar esta arma por defecto
-        }
-        else
-        {
-            // Si no es la primera arma, desactivamos el arma previamente seleccionada
-            SelectWeapon();
-        }
+        animPlayer.SetTrigger("unequipWeapon");
     }
 
+    public void InstantWeapon()
+    {
+        Destroy(currentWeapon);
+        currentWeapon = Instantiate(inventoryManager.GetItem(selectedWeapon).prefab, weaponHolder);
+        currentWeaponBarrel = currentWeapon.transform.GetChild(0);
+        //Instant animations reload hear
+    }
     /// <summary>
-    /// Retorna el arma activa actualmente en el WeaponHolder.
+    /// When habe a animation
+    public void StartReload()
+    {
+        shoot.canReload = false;
+    }
+
+    public void EndReload()
+    {
+        shoot.canReload = true;
+    }
+
     /// </summary>
-    public GameObject ActiveWeapon()
+
+    public int SetSelectdWeapon()
     {
-        int i = 0;
-        foreach (Transform weapon in weaponHolder) // Iterar sobre todas las armas
-        {
-            if (i == selectedWeapon && weapon.gameObject.activeSelf)
-            {
-                return weapon.gameObject; // Devuelve el arma activa
-            }
-
-            i++;
-        }
-
-        return null; // Retorna null si no hay ninguna activa
+        return selectedWeapon;
     }
-
-    public void ChangeState(GameObject weapon)
-    {
-        string weaponName = weapon.name; // Suponiendo que los nombres de las armas están configurados
-        switch (weaponName)
-        {
-            case "Knife":
-                animPlayer.SetBool("KnifeBool", true);
-                animPlayer.SetBool("PistolBool", false);
-                animPlayer.SetBool("HandsBool", false);
-                break;
-            case "Pistol":
-                animPlayer.SetBool("KnifeBool", false);
-                animPlayer.SetBool("PistolBool", true);
-                animPlayer.SetBool("HandsBool", false);
-                break;
-
-            default:
-                Debug.Log("Arma no encontrada");
-                break;
-        }
-    }
-
-
-
 
 }

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +7,19 @@ public class WeaponUI : MonoBehaviour
 {
     [SerializeField] private Image Image;
     [SerializeField] private TextMeshProUGUI magazineSizeText;
-    [SerializeField] private TextMeshProUGUI magazineCountText;
+    [SerializeField] private TextMeshProUGUI storedAmmoText;
 
-    public void UpdateInfo(int magazineSize, int magazineCount)
+    public void UpdateInfo(int magazineSize, int storedAmmo)
     {
         magazineSizeText.text = magazineSize.ToString();
-        int magazineCountAmount = magazineSize * magazineCount;
-        magazineCountText.text = magazineCountAmount.ToString();
+        storedAmmoText.text = storedAmmo.ToString();
         
+    }
+
+    public void UpdateAmmoUI (int magazineSize, int storedAmmo)
+    {
+        magazineSizeText.text = magazineSize.ToString();
+        storedAmmoText.text = storedAmmo.ToString();
     }
 
 }

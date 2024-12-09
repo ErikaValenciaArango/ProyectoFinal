@@ -6,21 +6,17 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 6f;
     [SerializeField] private Rigidbody bulletRb;
-
     [SerializeField] private BulletPool bulletPool;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField] private float damage = 10f; // Cantidad de daño que la bala inflige
 
     private void OnTriggerEnter(Collider other)
     {
+        // Aplicar daño si el objeto impactado tiene un componente Health
+        EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            enemyHealth.TakeDamage(damage);
+        }
         ReturnToPool();
     }
 
