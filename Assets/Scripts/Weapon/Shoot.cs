@@ -133,7 +133,6 @@ public class Shoot : MonoBehaviour
 
             primaryCurrentAmmo = weapon.magazineSize;
             primaryCurrenttAmmoStorage = weapon.storedAmmo;
-            Debug.Log($"Usando munición: AmmoActual {primaryCurrentAmmo}, StoredAmmo {primaryCurrenttAmmoStorage}");
         }
     }
 }

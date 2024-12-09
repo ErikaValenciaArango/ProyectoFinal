@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Weapon[] weapons;
 
     public WeaponSwitching activeWeapon;
-    public Shoot Shoot;
+    public WeaponShooting Shoot;
     //validar el tamano dle inventario
     public int InventorySize => weapons.Length;
 
@@ -43,11 +43,7 @@ public class InventoryManager : MonoBehaviour
 
         activeWeapon.UnequipWeapon();
         activeWeapon.EquipWeapon(item);
-
-        if (Shoot != null)
-        {
-            Shoot.InitAmmo((int)item.weaponStyle, item);
-        }
+        Shoot.InitAmmo((int)item.weaponStyle, item);
 
     }
 
@@ -64,10 +60,6 @@ public class InventoryManager : MonoBehaviour
 
     private void GetReferences()
     {
-        Shoot = FindObjectOfType<Shoot>();
-        if (Shoot == null)
-        {
-            Debug.LogWarning("No se encontró un objeto con el script 'Shoot'.");
-        }
+        Shoot = GetComponent<WeaponShooting>();
     }
 }
