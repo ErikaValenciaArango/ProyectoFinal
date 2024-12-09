@@ -5,15 +5,14 @@ public class Shoot : MonoBehaviour
     // Referencia al punto de disparo
     [SerializeField] private Transform shootPoint;
 
+
+
     // Tiempo de cooldown entre disparos
     private float nextShootTime = 0f;
 
     private InputManager inputManager;
 
     private AudioClip shootClip;
-
-    int cargador; //van a ser las municiones actuales del arma
-    public int cargadorFull = 0; // la municion maxima que va a tener el cargador
 
 
     /// <summary>
@@ -23,6 +22,8 @@ public class Shoot : MonoBehaviour
     private InventoryManager inventoryManager;
     private WeaponSwitching weaponSwitching;
 
+    [SerializeField] private int primaryCurrentAmmo;
+    [SerializeField] private int primaryCurrenttAmmoStorage;
 
     //At moment
     Vector3 targetPoint;
@@ -30,8 +31,6 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         inputManager = InputManager.Instance;
-
-        cargador = cargadorFull;
 
         //Recursos del objeto
         player = GameObject.FindGameObjectWithTag("Player");
@@ -45,26 +44,21 @@ public class Shoot : MonoBehaviour
         {
             Debug.LogError("No se encontró el audio de disparo en Resources/Sounds/ShootSound");
         }
+
+        primaryCurrentAmmo = 0;
+        primaryCurrenttAmmoStorage = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         Shooting();
-
-        if(Input.GetKeyDown("r"))
-        {
-            recharge();
-        }
+                Debug.Log(primaryCurrentAmmo);
+                Debug.Log(primaryCurrenttAmmoStorage);
     }
 
     void Shooting()
     {
-        //esta parte verifica si el cargador esta lleno si no lo esta lo devuelve
-        if(cargador <= 0)
-        {
-            return;
-        }
 
         Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
 
@@ -80,9 +74,6 @@ public class Shoot : MonoBehaviour
                 bullet.transform.rotation = shootPoint.rotation;
                 bullet.SetActive(true);
 
-                //Vector3 targetPoint;
-                Debug.Log("Shoot");
-
                 RayCastShoot(currentWeapon);
 
                  Vector3 direction = (targetPoint - shootPoint.position).normalized;
@@ -96,11 +87,12 @@ public class Shoot : MonoBehaviour
 
                 // Actualizar el tiempo del próximo disparo permitido
                 nextShootTime = Time.time + currentWeapon.fireRate;
+                
+                UseAmmo((int)currentWeapon.weaponStyle, 1, 0);
 
-                //resta uno a la municion
-                cargador -= 1;
             }
         }
+
     }
 
     void RayCastShoot(Weapon currentWeapon)
@@ -111,7 +103,6 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, currentWeapon.range))
         {
-            Debug.Log(hit.transform.name);
             targetPoint = hit.point;
         }
         else
@@ -124,8 +115,25 @@ public class Shoot : MonoBehaviour
     }
 
 
-    void recharge()
+    void UseAmmo(int slot, int currentAmmoUsed, int currentStoredAmmoUsed)
     {
-        cargador = cargadorFull;
+        //Primary
+        if (slot == 0)
+        {
+            primaryCurrentAmmo -= currentAmmoUsed;
+            primaryCurrenttAmmoStorage -= currentAmmoUsed;
+        }
+    }
+
+    public void InitAmmo(int slot, Weapon weapon)
+    {
+        //Primary
+        if (slot == 0)
+        {
+
+            primaryCurrentAmmo = weapon.magazineSize;
+            primaryCurrenttAmmoStorage = weapon.storedAmmo;
+            Debug.Log($"Usando munición: AmmoActual {primaryCurrentAmmo}, StoredAmmo {primaryCurrenttAmmoStorage}");
+        }
     }
 }

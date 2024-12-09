@@ -12,11 +12,15 @@ public class WeaponSwitching : MonoBehaviour
     private float lastScrollTime = 0f; // Registro del último cambio con la rueda del ratón
     private float scrollCooldown = 0.07f; // Tiempo mínimo entre cambios (en segundos)
 
+    //Try
+    private PlayerHUD playerHUD;
+
     void Start()
     {
         // Obtener referencia al InventoryManager
         inventoryManager = GetComponent<InventoryManager>();
         animPlayer = GetComponent<Animator>();
+        playerHUD = GetComponent<PlayerHUD>();
     }
 
     void Update()
@@ -68,7 +72,7 @@ public class WeaponSwitching : MonoBehaviour
         selectedWeapon = (int)weapon.weaponStyle;
         // Actualizar animaciones
         animPlayer.SetInteger("weaponType", (int)weapon.weaponType);
-
+        playerHUD.UpdateWeaponUI(weapon);
     }
 
     public  void UnequipWeapon()

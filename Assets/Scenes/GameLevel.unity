@@ -846,6 +846,18 @@ PrefabInstance:
       propertyPath: textoInteraccion
       value: 
       objectReference: {fileID: 913560188}
+    - target: {fileID: 2877199036414232072, guid: 03894ad7bf8c19c499b236569c081788, type: 3}
+      propertyPath: m_Color.b
+      value: 0.84881926
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877199036414232072, guid: 03894ad7bf8c19c499b236569c081788, type: 3}
+      propertyPath: m_Color.g
+      value: 0.84881926
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877199036414232072, guid: 03894ad7bf8c19c499b236569c081788, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 4112543985445322039, guid: 03894ad7bf8c19c499b236569c081788, type: 3}
       propertyPath: m_Name
       value: News
@@ -2423,6 +2435,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1265350208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5034997874762870144, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
+  m_PrefabInstance: {fileID: 861139989042000225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1266347385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5264930568947372842, guid: eee800ce89396e341b08258e017e37e7, type: 3}
@@ -3814,6 +3837,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 57.6
       objectReference: {fileID: 0}
+    - target: {fileID: 5126387601620259018, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
+      propertyPath: storedAmmoText
+      value: 
+      objectReference: {fileID: 1265350208}
     - target: {fileID: 6040845193326049128, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 10
@@ -4240,6 +4267,10 @@ PrefabInstance:
       propertyPath: defaultHandsWeapon
       value: 
       objectReference: {fileID: 11400000, guid: cfd21e63ba2808f42b87eecf1bdbfa4a, type: 2}
+    - target: {fileID: 7046826021262997128, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+      propertyPath: currentWeaponBarrel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7147074842756399244, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -4255,6 +4286,10 @@ PrefabInstance:
     - target: {fileID: 7277302195926288233, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.0280668
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316560310167191317, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+      propertyPath: eventoMorir.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7430591136337406933, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

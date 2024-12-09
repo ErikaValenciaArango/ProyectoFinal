@@ -19,8 +19,8 @@ MonoBehaviour:
   particle:
   - {fileID: 6050439023782756594, guid: 20e368c9a75394349a0334975b235a0b, type: 3}
   - {fileID: 9130351426018165186, guid: d83786de80161774cafe2070f889fd0d, type: 3}
-  magazineSize: 5
-  magazineCount: 2
+  magazineSize: 2
+  storedAmmo: 4
   range: 75
   fireRate: 0.5
   weaponType: 0

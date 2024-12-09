@@ -6,9 +6,9 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private Weapon[] weapons;
-    private PlayerHUD playerHUD;
 
     public WeaponSwitching activeWeapon;
+    public Shoot Shoot;
     //validar el tamano dle inventario
     public int InventorySize => weapons.Length;
 
@@ -44,8 +44,11 @@ public class InventoryManager : MonoBehaviour
         activeWeapon.UnequipWeapon();
         activeWeapon.EquipWeapon(item);
 
-        // Actualizar UI del arma (puedes cambiar seg�n tu implementaci�n de UI)
-        playerHUD.UpdateWeaponUI(item);
+        if (Shoot != null)
+        {
+            Shoot.InitAmmo((int)item.weaponStyle, item);
+        }
+
     }
 
     public void RemoveItem(int index)
@@ -61,6 +64,10 @@ public class InventoryManager : MonoBehaviour
 
     private void GetReferences()
     {
-        playerHUD = GetComponent<PlayerHUD>();
+        Shoot = FindObjectOfType<Shoot>();
+        if (Shoot == null)
+        {
+            Debug.LogWarning("No se encontró un objeto con el script 'Shoot'.");
+        }
     }
 }
