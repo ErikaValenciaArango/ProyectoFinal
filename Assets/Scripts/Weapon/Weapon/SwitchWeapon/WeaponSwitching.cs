@@ -4,6 +4,7 @@ public class WeaponSwitching : MonoBehaviour
 {
     public GameObject currentWeapon = null;
     public Transform weaponHolder = null; // Holder donde las armas están instanciadas
+    public Transform currentWeaponBarrel = null;
     
     private InventoryManager inventoryManager;
     private Animator animPlayer;
@@ -84,6 +85,7 @@ public class WeaponSwitching : MonoBehaviour
     {
         Destroy(currentWeapon);
         currentWeapon = Instantiate(inventoryManager.GetItem(selectedWeapon).prefab, weaponHolder);
+        currentWeaponBarrel = currentWeapon.transform.GetChild(0);
     }
 
     public int SetSelectdWeapon()

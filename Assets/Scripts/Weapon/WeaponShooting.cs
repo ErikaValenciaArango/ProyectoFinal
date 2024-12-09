@@ -54,7 +54,15 @@ public class WeaponShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shooting();
+        if (inputManager.PlayerAttacked())
+        {
+            Shooting();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload(weaponSwitching.SetSelectdWeapon());
+        }
     }
 
     void Shooting()
@@ -70,21 +78,20 @@ public class WeaponShooting : MonoBehaviour
             // Verificar si el tiempo actual es mayor o igual al tiempo del próximo disparo permitido
             if (Time.time >= nextShootTime)
             {
-                if (inputManager.PlayerAttacked())
-                {
+                
                     AudioManager.Instance.PlaySFX(shootClip, 0.2f);
                     // Instanciar el bullet en la posición del punto de disparo
                     GameObject bullet = BulletPool.Instance.RequestBullet();
-                    bullet.transform.position = weaponSwitching.weaponHolder.position;
-                    bullet.transform.rotation = weaponSwitching.weaponHolder.rotation;
+                    bullet.transform.position = weaponSwitching.currentWeaponBarrel.position;
+                    bullet.transform.rotation = weaponSwitching.currentWeaponBarrel.rotation;
                     bullet.SetActive(true);
 
                     RayCastShoot(currentWeapon);
 
-                    Vector3 direction = (targetPoint - weaponSwitching.weaponHolder.position).normalized;
+                    Vector3 direction = (targetPoint - weaponSwitching.currentWeaponBarrel.position).normalized;
 
                     // Debug para inspeccionar la dirección
-                    Debug.DrawRay(weaponSwitching.weaponHolder.position, direction * 5, Color.red, 2f);
+                    Debug.DrawRay(weaponSwitching.currentWeaponBarrel.position, direction * 5, Color.red, 2f);
 
                     // Establecer la dirección de la bala
                     Bullet bulletScript = bullet.GetComponent<Bullet>();
@@ -95,11 +102,9 @@ public class WeaponShooting : MonoBehaviour
 
                     UseAmmo((int)currentWeapon.weaponStyle, 1, 0);
 
-                }
+          
             }           
         }
-        else
-            Debug.Log("Not enough ammo in magazine");
 
 
     }
@@ -119,8 +124,8 @@ public class WeaponShooting : MonoBehaviour
             targetPoint = ray.GetPoint(1000); // Un punto lejano en la dirección del ray
         }
 
-        Instantiate(currentWeapon.particle[0], weaponSwitching.weaponHolder);
-        Instantiate(currentWeapon.particle[1], weaponSwitching.weaponHolder);
+        Instantiate(currentWeapon.particle[0], weaponSwitching.currentWeaponBarrel);
+        Instantiate(currentWeapon.particle[1], weaponSwitching.currentWeaponBarrel);
     }
 
 
@@ -167,4 +172,29 @@ public class WeaponShooting : MonoBehaviour
             }
         }
     }
+
+
+    private void Reload(int slot)
+    {
+        if (slot == 0)
+        {
+            int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
+
+            if (primaryCurrenttAmmoStorage >= ammoToReload)
+            {
+                if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
+                    Debug.Log("Magazine is already full");
+
+                primaryCurrentAmmo += ammoToReload;
+                primaryCurrenttAmmoStorage -= ammoToReload;
+                primaryMagazineIsEmpty = false;
+                CheckCanShoot(slot);
+            }
+            else
+                Debug.Log("Not enaugh ammo to reload");
+            
+           
+        }
+    }
+
 }
