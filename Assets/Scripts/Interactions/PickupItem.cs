@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PickupItem : Interactable
 {
-    public Weapon item;
+    public Item item;
     protected override void Start()
     {
         base.Start();

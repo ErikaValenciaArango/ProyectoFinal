@@ -13,7 +13,9 @@ public class PlayerInteraction : MonoBehaviour
     //llamada a inventario   (CHECKET WRITING BY ANDRES)
 
     private InventoryManager inventory;
-      private Weapon newItem;
+     private Weapon newWeapon;
+     private Consumable newItem;
+
 
     private void Start()
     {
@@ -30,9 +32,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.Interact();
             //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
+            if (newWeapon != null)
+            {
+                inventory.AddItem(newWeapon);
+                newWeapon = null;
+            }
             if (newItem != null)
             {
-                inventory.AddItem(newItem);
+
             }
         }
     }
@@ -50,12 +57,25 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
 
-                if (hit.transform.TryGetComponent<PickupItem>(out PickupItem pickupItem))
+                if (hit.transform.GetComponent<PickupItem>().item as Weapon)
                 {
                     //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
-                    newItem = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
+                    newWeapon = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
 
                 }
+                else if (hit.transform.GetComponent<PickupItem>().item as Consumable)
+                {
+                    newItem = hit.transform.GetComponent<PickupItem>()?.item as Consumable;
+                    if (newItem.type == ConsumableType.Medkit)
+                    {
+                        //Heal
+                    }
+                    else if (newItem.type == ConsumableType.Ammo)
+                    {
+                        //Ammo
+                    }
+                }
+
 
 
                 // Si hay un currentInteractable y no es el newInteractable
