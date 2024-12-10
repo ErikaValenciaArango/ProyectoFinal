@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerStats : CharacterStats
 {
     private PlayerHUD playerHUD;
+    [SerializeField]private GameObject gameOver;
     public UnityEvent eventoMorir;
 
     //Aditional Method
@@ -34,6 +34,9 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         eventoMorir.Invoke();
+        gameOver.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public override void Heal(int heal)
@@ -47,6 +50,7 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(damage);
         EffectCamera.DamageProsessing(health);
+
     }
 
     public int GetMaxHealth()
