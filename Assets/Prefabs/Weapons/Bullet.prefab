@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.38, z: 2.506}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf12d8edd81a2a54da544dde6743039f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 200
+  bulletSpeed: 100
   bulletRb: {fileID: 5923808182034198722}
   bulletPool: {fileID: 0}
+  damage: 25
