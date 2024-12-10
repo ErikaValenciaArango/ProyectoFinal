@@ -43,7 +43,21 @@ public class PlayerInteraction : MonoBehaviour
             }
             if (newItem != null)
             {
+                if (newItem.type == ConsumableType.Medkit)
+                {
+                    //Heal
+                    playerStats.Heal(playerStats.GetMaxHealth());
+                }
+                else if (newItem.type == ConsumableType.Ammo)
+                {
+                    //Ammo
+                    if (inventory.GetItem(0) != null)
+                    {
+                        shooting.InitAmmo(0, inventory.GetItem(0));
+                    }
+                }
 
+                newItem = null;
             }
         }
     }
@@ -71,23 +85,9 @@ public class PlayerInteraction : MonoBehaviour
                     else if (hit.transform.GetComponent<PickupItem>().item as Consumable)
                     {
                         newItem = hit.transform.GetComponent<PickupItem>()?.item as Consumable;
-                        if (newItem.type == ConsumableType.Medkit)
-                        {
-                            //Heal
-                            playerStats.Heal(playerStats.GetMaxHealth());
-                        }
-                        else if (newItem.type == ConsumableType.Ammo)
-                        {
-                            //Ammo
-                            if(inventory.GetItem(0) != null)
-                            {
-                                shooting.InitAmmo(0,inventory.GetItem(0));
-                            }
-                        }
+
                     }
                 }
-
-
 
 
                 // Si hay un currentInteractable y no es el newInteractable

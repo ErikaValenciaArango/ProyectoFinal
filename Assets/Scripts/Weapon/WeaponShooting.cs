@@ -158,6 +158,9 @@ public class WeaponShooting : MonoBehaviour
 
             primaryCurrentAmmo = weapon.magazineSize;
             primaryCurrenttAmmoStorage = weapon.storedAmmo;
+            playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
+            CheckCanShoot(slot);
+
         }
     }
 
@@ -198,7 +201,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
 
-                if (primaryCurrenttAmmoStorage >= ammoToReload)
+            if (primaryCurrenttAmmoStorage >= ammoToReload)
                 {
                     if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
                     {
