@@ -8,6 +8,9 @@ public class PlayerStats : CharacterStats
     private PlayerHUD playerHUD;
     public UnityEvent eventoMorir;
 
+    //Aditional Method
+    PostProsessing EffectCamera;
+
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class PlayerStats : CharacterStats
     private void GetReferences()
     {
         playerHUD = GetComponent<PlayerHUD>();
+        EffectCamera = GetComponentInChildren<PostProsessing>();
     }
 
     public override void CheckHealth()
@@ -30,6 +34,19 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         eventoMorir.Invoke();
+    }
+
+    public override void Heal(int heal)
+    {
+        base.Heal(heal);
+        EffectCamera.HealthProsessing();
+
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        EffectCamera.DamageProsessing(health);
     }
 
     public int GetMaxHealth()

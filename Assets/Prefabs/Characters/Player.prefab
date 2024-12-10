@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &424581563483189472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2431562438641446641}
+  m_Layer: 0
+  m_Name: PostProccessingGO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2431562438641446641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424581563483189472}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4249163357891530796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190209140680750086
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +626,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2431562438641446641}
     - targetCorrespondingSourceObject: {fileID: 8700783698680967558, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
       insertIndex: -1
       addedObject: {fileID: 430078316293063566}
@@ -779,6 +813,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!4 &4249163357891530796 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
+  m_PrefabInstance: {fileID: 4427802537999366087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5029907661058278977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}

@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected int maxHealth;
 
-    [SerializeField] protected bool isDead;
+    [SerializeField] protected bool isDead;    
 
 
     private void Start()
@@ -40,12 +40,12 @@ public class CharacterStats : MonoBehaviour
         CheckHealth();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         int HealthAfterDamage = health - damage;
         SetHealthTo( HealthAfterDamage );
     }
-    public void Heal(int heal)
+    public virtual void Heal(int heal)
     {
         int HealthAfterHeald = health + heal;
         SetHealthTo( HealthAfterHeald );
