@@ -812,6 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canReload: 0
   canShoot: 0
+  canCut: 0
   primaryCurrentAmmo: 0
   primaryCurrenttAmmoStorage: 0
   primaryMagazineIsEmpty: 0
@@ -830,6 +831,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   isDead: 0
+  gameOver: {fileID: 0}
   eventoMorir:
     m_PersistentCalls:
       m_Calls:
