@@ -31,4 +31,9 @@ public class PlayerStats : CharacterStats
         base.Die();
         eventoMorir.Invoke();
     }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

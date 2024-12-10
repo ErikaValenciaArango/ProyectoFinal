@@ -622,6 +622,9 @@ PrefabInstance:
       addedObject: {fileID: 2243519206052003564}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8834008746931718887}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4834212134398106829}
   m_SourcePrefab: {fileID: 100100000, guid: 0f08dfbf5f96d3c479e55bde20540543, type: 3}
 --- !u!1 &3581451470124042902 stripped
@@ -729,6 +732,23 @@ MonoBehaviour:
   weapons: []
   activeWeapon: {fileID: 0}
   Shoot: {fileID: 0}
+--- !u!114 &8834008746931718887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581451470124042902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6391a6f140272b54ca79225594ee3599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canReload: 0
+  canShoot: 0
+  primaryCurrentAmmo: 0
+  primaryCurrenttAmmoStorage: 0
+  primaryMagazineIsEmpty: 0
 --- !u!114 &4834212134398106829
 MonoBehaviour:
   m_ObjectHideFlags: 0

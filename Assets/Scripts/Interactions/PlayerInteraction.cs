@@ -10,19 +10,23 @@ public class PlayerInteraction : MonoBehaviour
 
     private InputManager inputManager;
 
-    //llamada a inventario   (CHECKET WRITING BY ANDRES)
-
     private InventoryManager inventory;
-     private Weapon newWeapon;
-     private Consumable newItem;
+    private PlayerStats playerStats;
+    private WeaponShooting shooting;
+    private WeaponSwitching equipment;
 
 
+    private Weapon newWeapon;
+    private Consumable newItem;
     private void Start()
     {
         inputManager = InputManager.Instance;
-        //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
 
         inventory = GetComponent<InventoryManager>();
+        playerStats = GetComponent<PlayerStats>();
+        shooting = GetComponent<WeaponShooting>();
+        equipment = GetComponent<WeaponSwitching>();
+
     }
 
     void Update()
@@ -70,10 +74,15 @@ public class PlayerInteraction : MonoBehaviour
                         if (newItem.type == ConsumableType.Medkit)
                         {
                             //Heal
+                            playerStats.Heal(playerStats.GetMaxHealth());
                         }
                         else if (newItem.type == ConsumableType.Ammo)
                         {
                             //Ammo
+                            if(inventory.GetItem(0) != null)
+                            {
+                                shooting.InitAmmo(0,inventory.GetItem(0));
+                            }
                         }
                     }
                 }
