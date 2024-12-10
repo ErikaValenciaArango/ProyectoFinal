@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation/cinematica.meta
+guid: 843e69445388cc04b810609c74252635
+========
 guid: fe6eeebd689d584439253da34139aab5
+>>>>>>>> main:Assets/Animation/Doors.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
