@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Key
+  - piedras
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcesing
   - Water
   - UI
   - Floor

@@ -10,17 +10,23 @@ public class PlayerInteraction : MonoBehaviour
 
     private InputManager inputManager;
 
-    //llamada a inventario   (CHECKET WRITING BY ANDRES)
-
     private InventoryManager inventory;
-      private Weapon newItem;
+    private PlayerStats playerStats;
+    private WeaponShooting shooting;
+    private WeaponSwitching equipment;
 
+
+    private Weapon newWeapon;
+    private Consumable newItem;
     private void Start()
     {
         inputManager = InputManager.Instance;
-        //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
 
         inventory = GetComponent<InventoryManager>();
+        playerStats = GetComponent<PlayerStats>();
+        shooting = GetComponent<WeaponShooting>();
+        equipment = GetComponent<WeaponSwitching>();
+
     }
 
     void Update()
@@ -30,9 +36,28 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.Interact();
             //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
+            if (newWeapon != null)
+            {
+                inventory.AddItem(newWeapon);
+                newWeapon = null;
+            }
             if (newItem != null)
             {
-                inventory.AddItem(newItem);
+                if (newItem.type == ConsumableType.Medkit)
+                {
+                    //Heal
+                    playerStats.Heal(playerStats.GetMaxHealth());
+                }
+                else if (newItem.type == ConsumableType.Ammo)
+                {
+                    //Ammo
+                    if (inventory.GetItem(0) != null)
+                    {
+                        shooting.InitAmmo(0, inventory.GetItem(0));
+                    }
+                }
+
+                newItem = null;
             }
         }
     }
@@ -49,12 +74,19 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.tag == "Interactable") // Si se está mirando un objeto interactuable
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
-
                 if (hit.transform.TryGetComponent<PickupItem>(out PickupItem pickupItem))
                 {
-                    //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
-                    newItem = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
+                    if (hit.transform.GetComponent<PickupItem>().item as Weapon)
+                    {
+                        //Agregar elementos al inventario (CHECKET WRITING BY ANDRES)
+                        newWeapon = hit.transform.GetComponent<PickupItem>()?.item as Weapon;
 
+                    }
+                    else if (hit.transform.GetComponent<PickupItem>().item as Consumable)
+                    {
+                        newItem = hit.transform.GetComponent<PickupItem>()?.item as Consumable;
+
+                    }
                 }
 
 

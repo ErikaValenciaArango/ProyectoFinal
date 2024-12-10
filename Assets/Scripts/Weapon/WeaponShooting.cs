@@ -6,6 +6,8 @@ public class WeaponShooting : MonoBehaviour
 {
     // Tiempo de cooldown entre disparos
     private float nextShootTime = 0f;
+    private float nextCutTime = 0f;
+
 
     private InputManager inputManager;
 
@@ -21,12 +23,20 @@ public class WeaponShooting : MonoBehaviour
 
     public bool canReload;
     [SerializeField] private bool canShoot;
+
+
+
     [SerializeField] private int primaryCurrentAmmo;
     [SerializeField] private int primaryCurrenttAmmoStorage;
     [SerializeField] private bool primaryMagazineIsEmpty = false;
 
     //At moment
     Vector3 targetPoint;
+
+    /// <summary>
+    /// Revisar uso mal de la programacion
+    /// </summary>
+    private Animator animate;
 
     private void Start()
     {
@@ -36,6 +46,7 @@ public class WeaponShooting : MonoBehaviour
         inventoryManager = GetComponent<InventoryManager>();
         weaponSwitching = GetComponent<WeaponSwitching>();
         playerHUD = GetComponent<PlayerHUD>();
+        animate = GetComponent<Animator>();
 
         // Carga el sonido desde Resources
         shootClip = Resources.Load<AudioClip>("Audio/AutoGun_3p_02");
@@ -59,6 +70,7 @@ public class WeaponShooting : MonoBehaviour
         if (inputManager.PlayerAttacked())
         {
             Shooting();
+            Cutting();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -67,6 +79,25 @@ public class WeaponShooting : MonoBehaviour
         }
     }
 
+
+    void Cutting()
+    {
+        if (weaponSwitching.SetSelectdWeapon() == 1 && weaponSwitching.currentWeapon!=null)
+        {
+            Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
+            if(Time.time >= nextCutTime)
+            {
+                RayCastShoot(currentWeapon);
+            }
+
+        }
+    }
+
+
+
+    /// <summary>
+    /// Codigo dedicado al arma pistola
+    /// </summary>
     void Shooting()
     {
            
@@ -125,9 +156,15 @@ public class WeaponShooting : MonoBehaviour
         {
             targetPoint = ray.GetPoint(1000); // Un punto lejano en la dirección del ray
         }
-
-        Instantiate(currentWeapon.particle[0], weaponSwitching.currentWeaponBarrel);
-        Instantiate(currentWeapon.particle[1], weaponSwitching.currentWeaponBarrel);
+        if (currentWeapon.name.Equals("Knife"))
+        {
+            animate.SetTrigger("Attack");
+        }
+        if(currentWeapon.name.Equals("Pistol"))
+        {
+            Instantiate(currentWeapon.particle[0], weaponSwitching.currentWeaponBarrel);
+            Instantiate(currentWeapon.particle[1], weaponSwitching.currentWeaponBarrel);
+        }
     }
 
 
@@ -158,6 +195,9 @@ public class WeaponShooting : MonoBehaviour
 
             primaryCurrentAmmo = weapon.magazineSize;
             primaryCurrenttAmmoStorage = weapon.storedAmmo;
+            playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
+            CheckCanShoot(slot);
+
         }
     }
 
@@ -177,7 +217,7 @@ public class WeaponShooting : MonoBehaviour
     }
 
 
-    private void addAmmo(int slot,int currentAmmoAdd, int currentStoredAmmoAdded )
+    public void addAmmo(int slot,int currentAmmoAdd, int currentStoredAmmoAdded )
     {
         //Primary
         if (slot == 0)
@@ -198,7 +238,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
 
-                if (primaryCurrenttAmmoStorage >= ammoToReload)
+            if (primaryCurrenttAmmoStorage >= ammoToReload)
                 {
                     if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
                     {
