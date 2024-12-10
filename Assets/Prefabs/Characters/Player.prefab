@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431562438641446641}
-  m_Layer: 0
+  - component: {fileID: 7733073751590651503}
+  - component: {fileID: 5458043807455695457}
+  m_Layer: 3
   m_Name: PostProccessingGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +33,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4249163357891530796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7733073751590651503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424581563483189472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8a04f1f477c0613428ff350a02951e2a, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &5458043807455695457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424581563483189472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468117e2a19108b458d7e03bfcec0e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 0
 --- !u!1 &1190209140680750086
 GameObject:
   m_ObjectHideFlags: 0
