@@ -10,11 +10,13 @@ public class PauseMenu : MonoBehaviour
     private bool pauseGame = false;
 
     private ZombieSound[] zombieSounds; // Referencias a los sonidos de los zombies
+    private QuestGUI2 questGUI2; // Referencia al script QuestGUI2
 
     private void Start()
     {
         Time.timeScale = 1f;
         zombieSounds = FindObjectsOfType<ZombieSound>(); // Encuentra todos los scripts ZombieSound en la escena
+        questGUI2 = FindObjectOfType<QuestGUI2>(); // Encuentra el script QuestGUI2 en la escena
     }
 
     private void Update()
@@ -66,6 +68,12 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        // Reiniciar el estado de la misión
+        if (questGUI2 != null)
+        {
+            questGUI2.ResetQuest();
+        }
     }
 
     public void goMainMenu()
@@ -75,4 +83,3 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 }
-

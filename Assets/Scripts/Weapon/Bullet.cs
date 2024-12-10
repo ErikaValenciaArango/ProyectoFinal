@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         if (enemyHealth != null)
         {
             enemyHealth.TakeDamage(damage);
+            Debug.Log("Making damage" + damage);
         }
         ReturnToPool();
     }

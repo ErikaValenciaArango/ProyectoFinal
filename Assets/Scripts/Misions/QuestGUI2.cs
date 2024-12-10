@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class QuestGUI2 : MonoBehaviour
 {
-    public static bool activarQuest = false;
-    private bool mediumQuest = false;
-    private bool finishQuest = false;
+    public bool activarQuest = false;
+    public bool mediumQuest = false;
+    public bool finishQuest = false;
 
     public Rect firstQuest;
     public string nomMision = "";
-    public string textMisionIncompleta = "Recolecta 3 piedras para completar la misi髇.";
-    public string textMisionCompleta = "Misi髇 completada. Has recolectado todas las piedras.";
+    public string textMisionIncompleta = "Recolecta 1 piedra para completar la misi贸n.";
+    public string textMisionCompleta = "Misi贸n completada. Has recolectado todas las piedras.";
     public Texture2D rostroMis;
     public GUISkin miSkin;
 
-    private bool cercaDeMision = false;
+    public bool cercaDeMision = false;
     private float tiempoMisionCompletada = 0f;
-    private bool missionFinished = false;
+    public bool missionFinished = false;
 
     void Start()
     {
@@ -49,26 +49,46 @@ public class QuestGUI2 : MonoBehaviour
     void OnGUI()
     {
         GUI.skin = miSkin;
-        GUIStyle style = new GUIStyle(GUI.skin.window) { fontSize = 30 };
+
+        // Estilo para ventanas
+        GUIStyle windowStyle = new GUIStyle(GUI.skin.window)
+        {
+            fontSize = 20,
+            alignment = TextAnchor.UpperCenter
+        };
+
+        // Estilo para t铆tulos grandes
+        GUIStyle titleStyle = new GUIStyle(windowStyle)
+        {
+            fontSize = 20,
+            normal = { textColor = Color.white }
+        };
 
         if (activarQuest)
         {
-            firstQuest = GUI.Window(0, firstQuest, Quest, "Mision - " + nomMision);
+            firstQuest = GUI.Window(0, firstQuest, Quest, "Misi贸n - " + nomMision, titleStyle);
         }
 
         if (mediumQuest)
         {
-            firstQuest = GUI.Window(0, firstQuest, Quest_Incompleta, "Mision en progreso");
+            firstQuest = GUI.Window(0, firstQuest, Quest_Incompleta, "Misi贸n en progreso", titleStyle);
         }
 
         if (finishQuest)
         {
-            firstQuest = GUI.Window(0, firstQuest, Quest_Completa, "Mision completada - " + nomMision);
+            firstQuest = GUI.Window(0, firstQuest, Quest_Completa, "Misi贸n completada - " + nomMision, titleStyle);
         }
 
         if (cercaDeMision && !finishQuest)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 50, 400, 100), "Presiona E para comenzar la misi髇", new GUIStyle() { fontSize = 40, alignment = TextAnchor.MiddleCenter, normal = { textColor = Color.white } });
+            GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 50, 400, 100),
+                "Presiona E para comenzar la misi贸n",
+                new GUIStyle()
+                {
+                    fontSize = 40,
+                    alignment = TextAnchor.MiddleCenter,
+                    normal = { textColor = Color.white }
+                });
         }
     }
 
@@ -80,7 +100,7 @@ public class QuestGUI2 : MonoBehaviour
 
     void Quest_Incompleta(int WindowID)
     {
-        string progreso = $"Piedras recolectadas: {Opciones2.piedras} / 3";
+        string progreso = $"Llave recolectada: {Opciones2.piedras} / 1";
         GUI.Label(new Rect(30, 100, 440, 60), progreso, new GUIStyle("Box") { fontSize = 20, alignment = TextAnchor.MiddleCenter });
         GUI.DrawTexture(new Rect(350, 50, 100, 100), rostroMis);
 
@@ -111,5 +131,16 @@ public class QuestGUI2 : MonoBehaviour
         {
             cercaDeMision = false;
         }
+    }
+
+    public void ResetQuest()
+    {
+        activarQuest = false;
+        mediumQuest = false;
+        finishQuest = false;
+        cercaDeMision = false;
+        missionFinished = false;
+        tiempoMisionCompletada = 0f;
+        Opciones2.piedras = 0; // Reinicia el progreso de la misi贸n
     }
 }

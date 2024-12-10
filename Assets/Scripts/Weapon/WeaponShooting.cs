@@ -82,6 +82,8 @@ public class WeaponShooting : MonoBehaviour
 
     void Cutting()
     {
+        CheckCanShoot(weaponSwitching.SetSelectdWeapon());
+
         if (weaponSwitching.SetSelectdWeapon() == 1 && weaponSwitching.currentWeapon!=null)
         {
             Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
@@ -103,7 +105,7 @@ public class WeaponShooting : MonoBehaviour
            
         CheckCanShoot(weaponSwitching.SetSelectdWeapon());
 
-        if (canShoot /*&& canReload*/)
+        if (canShoot && weaponSwitching.SetSelectdWeapon() == 0)
         {
 
             Weapon currentWeapon = inventoryManager.GetItem(weaponSwitching.SetSelectdWeapon());
@@ -195,8 +197,9 @@ public class WeaponShooting : MonoBehaviour
 
             primaryCurrentAmmo = weapon.magazineSize;
             primaryCurrenttAmmoStorage = weapon.storedAmmo;
-            playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
+            primaryMagazineIsEmpty = false;
             CheckCanShoot(slot);
+            playerHUD.UpdateWeaponAmmoUI(primaryCurrentAmmo, primaryCurrenttAmmoStorage);
 
         }
     }
@@ -238,7 +241,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 int ammoToReload = inventoryManager.GetItem(slot).magazineSize - primaryCurrentAmmo;
 
-            if (primaryCurrenttAmmoStorage >= ammoToReload)
+                if (primaryCurrenttAmmoStorage >= ammoToReload)
                 {
                     if (primaryCurrentAmmo == inventoryManager.GetItem(slot).magazineSize)
                     {
