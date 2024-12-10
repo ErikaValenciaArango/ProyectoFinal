@@ -19,7 +19,7 @@ public class Opciones2 : MonoBehaviour
                 normal = new GUIStyleState() { textColor = Color.white } // Establecer el color del texto a blanco
             };
             // Ajuste del rectángulo para que el texto no se corte
-            GUI.Label(new Rect(Screen.width / 2 - 50, 20, 250, 100), piedras + "/3 Keys", style);
+            GUI.Label(new Rect(Screen.width / 2 - 50, 20, 250, 100), piedras + "/1 Keys", style);
         }
     }
 }

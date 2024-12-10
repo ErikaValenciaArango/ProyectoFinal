@@ -84,7 +84,7 @@ public class QuestGUI2 : MonoBehaviour
         GUI.Label(new Rect(30, 100, 440, 60), progreso, new GUIStyle("Box") { fontSize = 20, alignment = TextAnchor.MiddleCenter });
         GUI.DrawTexture(new Rect(350, 50, 100, 100), rostroMis);
 
-        if (Opciones2.piedras >= 3)
+        if (Opciones2.piedras >= 1)
         {
             finishQuest = true;
             mediumQuest = false;
