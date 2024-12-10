@@ -1014,7 +1014,6 @@ MonoBehaviour:
   nomMision: ' Find the keys'
   textMisionIncompleta: ' Find all the keys'
   textMisionCompleta: ' Unlocked access'
-  textMision: You must find the 3 keys to access the elevator.
   rostroMis: {fileID: 0}
   miSkin: {fileID: 0}
 --- !u!64 &981563188
