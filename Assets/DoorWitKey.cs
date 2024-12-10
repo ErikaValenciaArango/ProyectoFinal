@@ -1,19 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorWitKey : MonoBehaviour
 {
     public bool Open = false;
-    Animator Animator;
-    private void Start() 
+    public bool HasKey = false; // Variable para verificar si la llave ha sido recogida
+    public Animator Animator;
+
+    private void Start()
     {
-        Animator = GetComponentInParent<Animator>();    
+        Animator = GetComponentInParent<Animator>();
     }
+
     public void CambiarValor()
     {
-        Open = !Open;
-        Animator.SetTrigger("Interactuo?");
-        Animator.SetBool("Abrir",Open);
+        if (HasKey) // Verificar si la llave ha sido recogida
+        {
+            Open = !Open;
+            Animator.SetTrigger("Interactuo?");
+            Animator.SetBool("Abrir", Open);
+        }
+
     }
 }
