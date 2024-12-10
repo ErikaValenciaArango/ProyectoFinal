@@ -5,6 +5,8 @@ public class WeaponSwitching : MonoBehaviour
     public GameObject currentWeapon = null;
     public Transform weaponHolder = null; // Holder donde las armas están instanciadas
     public Transform currentWeaponBarrel = null;
+
+    public GameObject UIAmmo = null;
     
     private InventoryManager inventoryManager;
     private Animator animPlayer;
@@ -75,7 +77,15 @@ public class WeaponSwitching : MonoBehaviour
         selectedWeapon = (int)weapon.weaponStyle;
         // Actualizar animaciones
         animPlayer.SetInteger("weaponType", (int)weapon.weaponType);
-        playerHUD.UpdateWeaponUI(weapon);
+
+        if (selectedWeapon == 0)
+        {
+            UIAmmo.SetActive(true);
+        }
+        else
+        {
+            UIAmmo.SetActive(false);
+        }
     }
 
     public  void UnequipWeapon()
