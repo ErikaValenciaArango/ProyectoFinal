@@ -973,6 +973,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &961884181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2979044534743849159, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
+  m_PrefabInstance: {fileID: 861139989042000225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &981563186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1754,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5126387601620259018, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
   m_PrefabInstance: {fileID: 861139989042000225}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 961884181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43a6983547cb6324fa7fb0ba92a6875c, type: 3}
@@ -2585,7 +2590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2979044534743849159, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3331947817097166133, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2635,6 +2640,10 @@ PrefabInstance:
       propertyPath: storedAmmoText
       value: 
       objectReference: {fileID: 1265350208}
+    - target: {fileID: 5389322527695378645, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6040845193326049128, guid: a7f89fccbd499414aa762c73ce85fbbf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 10
@@ -3077,6 +3086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.95802
       objectReference: {fileID: 0}
+    - target: {fileID: 7046826021262997128, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
+      propertyPath: UIAmmo
+      value: 
+      objectReference: {fileID: 961884181}
     - target: {fileID: 7046826021262997128, guid: 9ea99912598566c48b6a5437ed71bcce, type: 3}
       propertyPath: currentWeapon
       value: 
