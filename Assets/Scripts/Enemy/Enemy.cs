@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
         follow = 1,
         attack = 2,
         dead = 3,
+        patrol = 4,
     }
 
     /// <summary>
@@ -98,6 +99,7 @@ public class Enemy : MonoBehaviour
             CambiarEstado (Estados.follow);
         }
     }
+
     public virtual void EstadoFollow()
     {
         if (distancia < distanciaAtacar)

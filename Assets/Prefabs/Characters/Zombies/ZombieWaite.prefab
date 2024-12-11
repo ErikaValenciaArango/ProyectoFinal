@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.74
+      value: -22.216
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.648
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -388,6 +388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieWaite
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 14.5109415
@@ -706,10 +710,7 @@ PrefabInstance:
       addedObject: {fileID: 289866376357816594}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -331169380219464011}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -6372282616022587701}
+      addedObject: {fileID: 7657064497276247629}
   m_SourcePrefab: {fileID: 100100000, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
 --- !u!1 &2298654480731344665 stripped
 GameObject:
@@ -780,6 +781,7 @@ MonoBehaviour:
   autoSeleccionarTarget: 1
   vivo: 1
   animationChild: {fileID: 3496957926075701764}
+  statsEnemy: {fileID: 0}
   damage: 3
 --- !u!65 &289866376357816594
 BoxCollider:
@@ -796,13 +798,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.6, y: 2.0454457, z: 0.6}
   m_Center: {x: 0, y: 1.0127228, z: 0}
---- !u!114 &-331169380219464011
+--- !u!114 &7657064497276247629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -811,34 +813,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2298654480731344665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87907af312ad12f46a1562a11b3009ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 067bc84f24165524cb1739b3b31dde9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
---- !u!54 &-6372282616022587701
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2298654480731344665}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  health: 0
+  maxHealth: 0
+  isDead: 0
