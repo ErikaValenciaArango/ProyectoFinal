@@ -7,6 +7,7 @@ public class Weapon : Item
 {
     public GameObject prefab; // prefab del arma
     public ParticleSystem[] particle;// Las particulas dle arma
+    public int damage;
     public int magazineSize; // tamano del cargador de balas
     public int storedAmmo; // cantidad de cargadores que tiene
     public float range;// rango de disparo
