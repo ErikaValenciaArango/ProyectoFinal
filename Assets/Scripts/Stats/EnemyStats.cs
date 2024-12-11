@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-   
+
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class EnemyStats : CharacterStats
 
     public override void InitVariables()
     {
-        maxHealth = 25;
+        maxHealth = 120;
         SetHealthTo(maxHealth);
         isDead = false;
     }
