@@ -4,7 +4,7 @@ using System.Collections;
 public class Mision2 : MonoBehaviour
 {
     public GameObject objeto;
-    private int _numObj = 0;
+    //private int _numObj = 0;
     public static bool misionSegunda = false;
     public int layerPiedras; // Variable para almacenar la capa de los objetos que deseas buscar
 

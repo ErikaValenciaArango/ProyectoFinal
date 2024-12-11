@@ -7,6 +7,7 @@ public class PlayerStats : CharacterStats
     private PlayerHUD playerHUD;
     [SerializeField]private GameObject gameOver;
     public UnityEvent eventoMorir;
+    public GameObject Weapon;
 
     //Aditional Method
     PostProsessing EffectCamera;
@@ -34,7 +35,9 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         eventoMorir.Invoke();
+        Weapon.gameObject.SetActive(false);
         gameOver.SetActive(true);
+
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
     }

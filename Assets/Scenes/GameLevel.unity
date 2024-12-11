@@ -266,14 +266,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2666925789510901770, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3133201804361752072, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
-      propertyPath: distanciaAtacar
-      value: 1.8
-      objectReference: {fileID: 0}
     - target: {fileID: 3133201804361752072, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
       propertyPath: checkPoints.Array.data[0]
       value: 
@@ -951,6 +943,10 @@ PrefabInstance:
       value: Fuse_1
       objectReference: {fileID: 0}
     - target: {fileID: 1156131418211624336, guid: 6c2485dbc2aa64a42b4834b92e3fb29c, type: 3}
+      propertyPath: fakeWall
+      value: 
+      objectReference: {fileID: 869839900}
+    - target: {fileID: 1156131418211624336, guid: 6c2485dbc2aa64a42b4834b92e3fb29c, type: 3}
       propertyPath: doorElevator
       value: 
       objectReference: {fileID: 1449143745}
@@ -1353,6 +1349,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2025355889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &869839900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7786739054467090993, guid: fc29ff53021809947a0e2e01570bf377, type: 3}
+  m_PrefabInstance: {fileID: 7570638709863092704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &882967132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2401,7 +2402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3162319632684622934, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: spawnConfigs.Array.data[2].spawnCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3162319632684622934, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: spawnConfigs.Array.data[3].spawnCount
@@ -2541,7 +2542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -197.78
+      value: -200.832
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2549,23 +2550,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3015.15
+      value: 3025.221
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.70710677
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2573,7 +2574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5608808349103177462, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6859719061339007915, guid: eee800ce89396e341b08258e017e37e7, type: 3}
       propertyPath: m_LocalPosition.x
