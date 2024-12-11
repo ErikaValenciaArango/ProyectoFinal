@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.216
+      value: -27.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.34
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -711,6 +711,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7657064497276247629}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4472144685245036310}
   m_SourcePrefab: {fileID: 100100000, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
 --- !u!1 &2298654480731344665 stripped
 GameObject:
@@ -819,3 +822,19 @@ MonoBehaviour:
   health: 0
   maxHealth: 120
   isDead: 0
+--- !u!114 &4472144685245036310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298654480731344665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8eacd249041e6469aa7c148061650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSound: {fileID: 8300000, guid: 4c01ccd6e3973a241a8ee08ad360e19c, type: 3}
+  player: {fileID: 0}
+  maxDistance: 10
+  minDistance: 0.5

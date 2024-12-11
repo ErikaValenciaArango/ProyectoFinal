@@ -711,6 +711,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4914192676209708496}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8216266115037780190}
   m_SourcePrefab: {fileID: 100100000, guid: f0a560fee91634b4c97aaaea687d25e1, type: 3}
 --- !u!1 &466153468458100011 stripped
 GameObject:
@@ -825,3 +828,19 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   isDead: 0
+--- !u!114 &8216266115037780190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466153468458100011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8eacd249041e6469aa7c148061650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSound: {fileID: 8300000, guid: 4c01ccd6e3973a241a8ee08ad360e19c, type: 3}
+  player: {fileID: 0}
+  maxDistance: 10
+  minDistance: 0.5
