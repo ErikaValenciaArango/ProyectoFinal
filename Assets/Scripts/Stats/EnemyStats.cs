@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-
+    private ZombieSound zombieSound;
 
     private void Start()
     {
         InitVariables();
+        zombieSound = GetComponent<ZombieSound>();
     }
 
     public void DealDamage()
@@ -20,6 +21,11 @@ public class EnemyStats : CharacterStats
     public override void Die()
     {
         base.Die();
+
+        if (zombieSound != null)
+        {
+            zombieSound.OnEnemyDeath();
+        }
     }
 
     public override void InitVariables()
