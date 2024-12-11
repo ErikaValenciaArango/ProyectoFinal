@@ -155,7 +155,6 @@ public class WeaponShooting : MonoBehaviour
             targetPoint = hit.point;
             if (hit.transform.tag == "Enemy")
             {
-                    Debug.Log("Hit");
                     CharacterStats enemyStats = hit.transform.GetComponent<CharacterStats>();
                     enemyStats.TakeDamage(currentWeapon.damage);
             }
