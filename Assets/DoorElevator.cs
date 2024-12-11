@@ -5,21 +5,26 @@ using UnityEngine;
 public class DoorElevator : MonoBehaviour
 {
     public bool Open = false;
-    Animator Animator;
-    private void Start() 
+    public bool HasFuse = false; // Variable para verificar si el fusible ha sido recogida
+    public Animator Animator;
+    private void Start()
     {
-        Animator = GetComponentInParent<Animator>();    
+        Animator = GetComponentInParent<Animator>();
     }
 
     public void abrir()
     {
-        Open = true;
-        Animator.SetBool("Abrir",Open);
+        if (HasFuse)
+        {
+            Open = true;
+            Animator.SetBool("Abrir", Open);
+        }
+
     }
     public void Cerrar()
     {
         Open = false;
-        Animator.SetBool("Abrir",Open);
+        Animator.SetBool("Abrir", Open);
     }
 
 }
