@@ -967,6 +967,127 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.004489588, y: 0.004489583, z: 0.048713185}
   m_Center: {x: 0.000000012572855, y: 0.000000004773027, z: 9.313224e-10}
+--- !u!1001 &1161913331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 118612, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_Name
+      value: menuboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.959
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427198, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_Text
+      value: 'L''Angolo
+
+        ---------'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446852, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494920, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_Text
+      value: "Bistec :                 8$\nHamburgesa:          12$\n             
+        ----\nBusca la llave:      3.5$\nPierna frita:          3$\n             
+        ----\nGelatina de ojos :   5$\nSopa de organos:    2$\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 65363388009998808, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.49209973
+      objectReference: {fileID: 0}
+    - target: {fileID: 65363388009998808, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_Center.z
+      value: -0.17888634
+      objectReference: {fileID: 0}
+    - target: {fileID: 65363388009998808, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 118612, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1161913333}
+  m_SourcePrefab: {fileID: 100100000, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+--- !u!1 &1161913332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 118612, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
+  m_PrefabInstance: {fileID: 1161913331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1161913333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161913332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca70a6e4180982458602051ceb7ff15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activarQuest: 0
+  mediumQuest: 0
+  finishQuest: 0
+  firstQuest:
+    serializedVersion: 2
+    x: 20
+    y: 20
+    width: 300
+    height: 350
+  nomMision: Encuentra la llave
+  textMisionIncompleta: Encuentra la llave para poder abrir la puerta
+  textMisionCompleta: Encontraste la llave!
+  rostroMis: {fileID: 0}
+  miSkin: {fileID: 0}
+  cercaDeMision: 0
+  missionFinished: 0
 --- !u!1 &1164830755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,63 +3354,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad31329b0e85544da1930bde9b5db7a, type: 3}
---- !u!1001 &5548850346014275558
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.826
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090728563681504205, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9219140276416511825, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
-      propertyPath: m_Name
-      value: CartelMision
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7628de072ac2a8d46a986c8c189c22b4, type: 3}
 --- !u!1001 &7570638709863092704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3467,4 +3531,4 @@ SceneRoots:
   - {fileID: 1389237927}
   - {fileID: 882967132}
   - {fileID: 605331206}
-  - {fileID: 5548850346014275558}
+  - {fileID: 1161913331}
