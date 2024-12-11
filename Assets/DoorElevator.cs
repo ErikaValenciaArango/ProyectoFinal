@@ -61,10 +61,10 @@ public class DoorElevator : MonoBehaviour
         finalScreen.SetActive(true);
         // Esperar 3 segundos
         yield return new WaitForSeconds(5);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         yield return new WaitForSeconds(1);
         finalScreen.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
     }
 
 }
