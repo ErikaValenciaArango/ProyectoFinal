@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorElevator : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class DoorElevator : MonoBehaviour
     public Animator Animator;
 
     public TextMeshProUGUI textMeshProObject; // Referencia al objeto TextMeshPro
+    [SerializeField]private  GameObject finalScreen;
 
 
     private void Start()
     {
         Animator = GetComponentInParent<Animator>();
+        finalScreen.SetActive(false);
     }
 
     public void abrir()
@@ -35,8 +38,13 @@ public class DoorElevator : MonoBehaviour
     }
     public void Cerrar()
     {
+        if (finalScreen == null )
+        {
+            Debug.LogWarning("No se cuenta con el objeto final scree");
+        } 
         Open = false;
         Animator.SetBool("Abrir", Open);
+        StartCoroutine (FinalScreenTimeLaps());
     }
 
     private IEnumerator DesactivarTexto()
@@ -45,6 +53,18 @@ public class DoorElevator : MonoBehaviour
         yield return new WaitForSeconds(3);
         // Desactivar el objeto TextMeshPro
         textMeshProObject.gameObject.SetActive(false);
+    }
+
+    private IEnumerator FinalScreenTimeLaps()
+    {
+        yield return new WaitForSeconds(3);
+        finalScreen.SetActive(true);
+        // Esperar 3 segundos
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        yield return new WaitForSeconds(1);
+        finalScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
     }
 
 }

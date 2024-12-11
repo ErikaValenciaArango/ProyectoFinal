@@ -755,7 +755,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 1.7
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estado: 0
   distanciaSeguir: 3.07
-  distanciaAtacar: 1.2
+  distanciaAtacar: 1.4
   distanciaEscapar: 4
   distancia: 0
   target: {fileID: 0}
@@ -785,7 +785,7 @@ MonoBehaviour:
   vivo: 1
   animationChild: {fileID: 3496957926075701764}
   statsEnemy: {fileID: 0}
-  damage: 3
+  damage: 10
 --- !u!65 &289866376357816594
 BoxCollider:
   m_ObjectHideFlags: 0

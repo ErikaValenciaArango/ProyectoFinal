@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class ActivateObjectsMoving : Interactable
 {
     public Library library;
@@ -21,5 +23,6 @@ public class ActivateObjectsMoving : Interactable
             gameObject.SetActive(true);
         }
     }
+
 }
 
