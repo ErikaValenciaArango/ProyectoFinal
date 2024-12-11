@@ -153,6 +153,11 @@ public class WeaponShooting : MonoBehaviour
         if (Physics.Raycast(ray, out hit, currentWeapon.range))
         {
             targetPoint = hit.point;
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                    CharacterStats enemyStats = hit.transform.GetComponent<CharacterStats>();
+                    enemyStats.TakeDamage(currentWeapon.damage);
+            }
         }
         else
         {

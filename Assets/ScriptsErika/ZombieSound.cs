@@ -3,12 +3,13 @@ using UnityEngine;
 public class ZombieSound : MonoBehaviour
 {
     [SerializeField] private AudioClip zombieSound;  // El AudioClip con el sonido del zombie
-    [SerializeField] private Transform player;       // Referencia al jugador (por ejemplo, la cámara o el jugador mismo)
+    [SerializeField] private Transform player;       // Referencia al jugador
     [SerializeField] private float maxDistance = 10f; // Distancia máxima para que el sonido sea escuchado
     [SerializeField] private float minDistance = 0.5f;  // Distancia mínima para sonido a volumen máximo
 
     private AudioSource audioSource; // El AudioSource que va a reproducir el sonido
     private bool isPaused = false; // Controla si el juego está pausado
+    private bool isDead = false; // Controla si el zombie está muerto
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class ZombieSound : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>(); // Añadir un nuevo AudioSource si no tiene uno
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
 
         audioSource.clip = zombieSound;  // Asignar el sonido del zombie al AudioSource
@@ -25,14 +26,14 @@ public class ZombieSound : MonoBehaviour
 
     private void Update()
     {
-        if (isPaused)
+        if (isPaused || isDead)
         {
-            // Detén el audio si el juego está pausado
+            // Detener el audio si el juego está pausado o el zombie está muerto
             if (audioSource.isPlaying)
             {
-                audioSource.Pause();
+                audioSource.Stop();
             }
-            return; // Sal del Update si está pausado
+            return; // Sal del Update
         }
 
         // Calcula la distancia entre el zombie y el jugador
@@ -43,9 +44,7 @@ public class ZombieSound : MonoBehaviour
         {
             // El volumen se ajusta según la distancia
             float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
-
-            // Reducir el volumen general
-            volume *= 0.05f; // Ajusta el volumen a la mitad
+            volume *= 0.05f; // Ajusta el volumen general
             audioSource.volume = volume;
 
             // Reproducir el sonido si no se está reproduciendo
@@ -76,7 +75,18 @@ public class ZombieSound : MonoBehaviour
             audioSource.UnPause();
         }
     }
+
+    public void OnEnemyDeath()
+    {
+        // Marcar al zombie como muerto y detener el sonido
+        isDead = true;
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
 }
+
 
 
 

@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class CharacterStats : MonoBehaviour
 {
     [SerializeField] protected int health;
-    [SerializeField] protected int maxHealth;
+    public int maxHealth;
 
-    [SerializeField] protected bool isDead;    
+    public bool isDead;    
 
 
     private void Start()
@@ -51,7 +51,7 @@ public class CharacterStats : MonoBehaviour
         SetHealthTo( HealthAfterHeald );
     }
 
-    public void InitVariables()
+    public virtual void InitVariables()
     {
         maxHealth =100;
         SetHealthTo(maxHealth);

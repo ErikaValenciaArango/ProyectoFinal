@@ -16,9 +16,11 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: Small knife to cut meat
   prefab: {fileID: 6028230883932097713, guid: e2e4b39a7cc6d9d46870a6f86bd708ea, type: 3}
+  particle: []
+  damage: 10
   magazineSize: 0
-  magazineCount: 0
-  range: 0.5
+  storedAmmo: 0
+  range: 1
   fireRate: 1
   weaponType: 1
   weaponStyle: 1
