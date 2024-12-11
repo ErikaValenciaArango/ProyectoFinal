@@ -17,6 +17,9 @@ public class QuestGUI2 : MonoBehaviour
     private float tiempoMisionCompletada = 0f;
     public bool missionFinished = false;
 
+    private float tiempoInicioMision = 0f;
+    private bool mostrandoInstrucciones = false;
+
     void Start()
     {
         firstQuest = new Rect(30, 30, 500, 300);
@@ -27,8 +30,16 @@ public class QuestGUI2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !activarQuest && cercaDeMision)
         {
             activarQuest = true;
-            mediumQuest = true;
+            mediumQuest = false;
             finishQuest = false;
+            mostrandoInstrucciones = true;
+            tiempoInicioMision = Time.time;
+        }
+
+        if (mostrandoInstrucciones && Time.time - tiempoInicioMision > 5f)
+        {
+            mostrandoInstrucciones = false;
+            mediumQuest = true;
         }
 
         if (finishQuest && !missionFinished)
@@ -39,10 +50,7 @@ public class QuestGUI2 : MonoBehaviour
 
         if (missionFinished && Time.time - tiempoMisionCompletada > 5f)
         {
-            finishQuest = false;
-            activarQuest = false;
-            mediumQuest = false;
-            cercaDeMision = false;
+            ResetQuest();
         }
     }
 
@@ -50,23 +58,15 @@ public class QuestGUI2 : MonoBehaviour
     {
         GUI.skin = miSkin;
 
-        // Estilo para ventanas
-        GUIStyle windowStyle = new GUIStyle(GUI.skin.window)
+        GUIStyle titleStyle = new GUIStyle(GUI.skin.window)
         {
             fontSize = 20,
             alignment = TextAnchor.UpperCenter
         };
 
-        // Estilo para títulos grandes
-        GUIStyle titleStyle = new GUIStyle(windowStyle)
+        if (activarQuest && mostrandoInstrucciones)
         {
-            fontSize = 20,
-            normal = { textColor = Color.white }
-        };
-
-        if (activarQuest)
-        {
-            firstQuest = GUI.Window(0, firstQuest, Quest, "Misión - " + nomMision, titleStyle);
+            firstQuest = GUI.Window(0, firstQuest, MostrarInstrucciones, "Misión - " + nomMision, titleStyle);
         }
 
         if (mediumQuest)
@@ -79,7 +79,7 @@ public class QuestGUI2 : MonoBehaviour
             firstQuest = GUI.Window(0, firstQuest, Quest_Completa, "Misión completada - " + nomMision, titleStyle);
         }
 
-        if (cercaDeMision && !finishQuest)
+        if (cercaDeMision && !finishQuest && !activarQuest)
         {
             GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 50, 400, 100),
                 "Presiona E para comenzar la misión",
@@ -92,7 +92,7 @@ public class QuestGUI2 : MonoBehaviour
         }
     }
 
-    void Quest(int WindowID)
+    void MostrarInstrucciones(int WindowID)
     {
         GUI.Label(new Rect(30, 100, 440, 60), textMisionIncompleta, new GUIStyle("Box") { fontSize = 20, alignment = TextAnchor.MiddleCenter });
         GUI.DrawTexture(new Rect(350, 50, 100, 100), rostroMis);
@@ -140,6 +140,8 @@ public class QuestGUI2 : MonoBehaviour
         finishQuest = false;
         cercaDeMision = false;
         missionFinished = false;
+        mostrandoInstrucciones = false;
+        tiempoInicioMision = 0f;
         tiempoMisionCompletada = 0f;
         Opciones2.piedras = 0; // Reinicia el progreso de la misión
     }
